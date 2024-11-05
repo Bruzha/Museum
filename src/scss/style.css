@@ -1,5 +1,11 @@
 body {
-  font-family: url("../font/Roboto-Black.ttf");
+  width: 1920px;
+  font-family: url("../font/Roboto-Regular.ttf");
+  flex-direction: column;
+}
+
+.style1 {
+  background-color: black;
   display: flex;
   justify-content: center;
 }
@@ -8,7 +14,8 @@ header {
   width: 1440px;
   height: 150px;
   background-color: black;
-  font-size: 26px;
+  font-size: 22px;
+  font-weight: 200;
   color: white;
   display: flex;
   align-items: center;
@@ -27,7 +34,13 @@ header a {
   color: white;
 }
 header div {
-  font-size: 31px;
+  font-size: 28px;
+  font-weight: 400;
   font-family: url("../font/Forum-Regular.ttf");
   margin-left: 25px;
+}
+
+main {
+  width: 1440px;
+  height: 8717px;
 }/*# sourceMappingURL=style.css.map */
