@@ -1,3 +1,13 @@
-header{
+body{
+    font-family: url('../font/Roboto-Black.ttf');
+}
+header {
     background-color: black;
+    font-size: 26px;
+    color:white
+}
+
+a {
+    text-decoration: none;
+    color:white;
 }

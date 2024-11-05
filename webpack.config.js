@@ -1,39 +1,25 @@
-const path = require('path')
-const phtmlWebpackPlugin = require('html-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-module.exports = {
-    entry: {
-        filename: path.resolve(__dirname,'src/index.js')
-    },
-    output:{
-        path: path.resolve(__dirname,'dist'),
-        filename: 'index.js',
-        assetModuleFilename: '[name][ext]'
-    },
-    devServer:{
-        port:9000,
-        compress: true,
-        hot: true,
-        static:{
-            directory: path.join(_dirname, 'dist')
-        }
-    },
-    module:{
-        rules:[
-            {
-                test: /\.scss$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+const path = require('path');
+
+        module.exports = {
+            entry: './src/js/index.js',
+            output: {
+                filename: 'bundle.js',
+                path: path.resolve(__dirname, 'dist'),
             },
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource'
-            }
-        ]
-    },
-    plugins:[
-        new HtmlWebpackPlugin({
-            title: 'Museum',
-            filename: 'index.html'
-        })
-    ]
-}
+            mode: 'development',
+            module: {
+                rules: [
+                    {
+                        test: /\.js$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: 'babel-loader',
+                        },
+                    },
+                    {
+                        test: /\.scss$/,
+                        use:['style-loader', 'css-loader', ]
+                    }
+                ],
+            },
+        };
