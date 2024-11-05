@@ -1,14 +1,33 @@
 body {
   font-family: url("../font/Roboto-Black.ttf");
+  display: flex;
+  justify-content: center;
 }
 
 header {
+  width: 1440px;
+  height: 150px;
   background-color: black;
   font-size: 26px;
   color: white;
+  display: flex;
+  align-items: center;
 }
-
-a {
+header nav {
+  margin-left: auto;
+  width: 775px;
+  height: 26px;
+}
+header nav form {
+  display: flex;
+  justify-content: space-between;
+}
+header a {
   text-decoration: none;
   color: white;
+}
+header div {
+  font-size: 31px;
+  font-family: url("../font/Forum-Regular.ttf");
+  margin-left: 25px;
 }/*# sourceMappingURL=style.css.map */
