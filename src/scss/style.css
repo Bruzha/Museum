@@ -38,7 +38,6 @@ body {
   color: rgb(0, 0, 0);
   font-weight: 200;
   margin-top: 10px;
-  font-family: "Roboto", sans-serif;
 }
 
 .text2 {
@@ -49,6 +48,13 @@ body {
 .text3 {
   font-size: 18px;
   line-height: 21.09px;
+}
+
+.text4 {
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 38.5px;
+  color: white;
 }
 
 header {
