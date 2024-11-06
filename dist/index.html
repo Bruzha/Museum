@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../src/scss/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .radio1{
+            opacity: 0;
+            position: absolute;
+        }
+        .radio-look{
+            width: 16px;
+            height: 16px;
+            background-color: white;
+        }
+        .radio-look::after{
+            content: "";
+            position: absolute;
+        }
+        .radio1:checked+.radio-look::after{
+            background-color: rgba(210, 177, 131, 1);
+        }
+    </style>
 </head>
 <body>
     <div class="style1">
@@ -12,7 +32,7 @@
         <img src="../src/img/Logo.png" alt="logo.png" width="49" height="26">
         <div>LOUVRE</div>
         <nav>
-            <form>
+            <form style="font-family: 'Roboto', sans-serif; font-weight: 200;">
                 <a href="#visiting">Visiting</a>
                 <a href="#explore">Explore</a>
                 <a href="#video">Video</a>
@@ -24,7 +44,10 @@
     </header>
 </div>
 <div style="display: flex; justify-content: center;">
-    <div style="background-color: black; width: 1920px; height: 810px; position: absolute;"></div>
+    <div style="background-color: black; 
+    width: 1920px; 
+    height: 810px; 
+    position: absolute;"></div>
     <main>
         <section style="color:white">
             <img src="../src/img/1.png" width="1000" height="750" style="position: absolute; margin-left: 440px;">
@@ -33,22 +56,54 @@
             width: 600px; 
             height: 120px;
             margin-left: 840px;
-            margin-top: 690px;">
-                <div>01 | 05</div>
-                <form>
-                <input class="radio1" type="radio" checked>
-                <input class="radio1" type="radio">
-                <input class="radio1" type="radio">
-                <input class="radio1" type="radio">
-                <input class="radio1" type="radio">
+            margin-top: 690px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;">
+                <div style="font-family: 'Roboto', sans-serif; 
+                font-size: 22px; 
+                font-weight: 400;
+                line-height: 40px;
+                width: 76px; 
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                margin-left: 74px;">
+                    <div>01</div>
+                    <div>|</div>
+                    <div>05</div>
+                </div>
+                <form style="width: 180px; 
+                height: 16px;
+                display: flex;
+                justify-content: space-between; ">
+                    <input class="radio1" type="radio" checked>
+                    <span class="radio-look"></span>
+                    <input class="radio1" type="radio">
+                    <span class="radio-look"></span>
+                    <input class="radio1" type="radio">
+                    <span class="radio-look"></span>
+                    <input class="radio1" type="radio">
+                    <span class="radio-look"></span>
+                    <input class="radio1" type="radio">
+                    <span class="radio-look"></span>
                 </form>
+                <div style="margin-right: 74px;">
+                    <img width="30px" height="8px" src="../src/img/←.png" alt="стрелка-назад.png">
+                    <img width="30px" height="8px" src="../src/img/← (1).png" alt="стрелка-вперед.png">
+                </div>
             </div>
             <div style="position: absolute; margin-top: 150px;">
-                <div style="font-size: 80px; font-weight: 400;">WELCOME<br>TO THE LOUVRE</div>
+                <div style="font-size: 80px; 
+                font-weight: 400; 
+                line-height: 90px; 
+                letter-spacing: 5px;">WELCOME<br>TO THE LOUVRE</div>
                 <div style="font-size: 28px; 
                 font-weight: 300; 
-                font-family: url('../font/Roboto-Regular.ttf');
-                margin-top: 25px;">From the castle to the museum</div>
+                font-family: 'Roboto', sans-serif;
+                margin-top: 25px;
+                line-height: 32.81px;
+                letter-spacing: 2px;">From the castle to the museum</div>
                 <input type="button" value="Discover the Louvre" style="background-image: url('../src/img/Button.png'); 
                 width: 360px; 
                 height: 75px; 
@@ -57,8 +112,10 @@
                 color:white;
                 font-size: 22px;
                 font-weight: 300;
-                font-family: url('../font/Roboto-Regular.ttf');
-                margin-top: 75px;">
+                font-family: 'Roboto', sans-serif;
+                margin-top: 75px;
+                line-height: 25.78px;
+                letter-spacing: 2px;">
             </div>
         </section>
     </main>
