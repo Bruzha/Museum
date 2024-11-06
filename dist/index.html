@@ -17,12 +17,17 @@
             height: 16px;
             background-color: white;
         }
-        .radio-look::after{
-            content: "";
-            position: absolute;
-        }
-        .radio1:checked+.radio-look::after{
+        .radio-look2{
+            width: 16px;
+            height: 16px;
             background-color: rgba(210, 177, 131, 1);
+        }
+        .title{
+            font-family: url('../font/Forum-Regular.ttf');
+            font-size: 80px;
+            font-weight: 400;
+            line-height: 90px;
+            letter-spacing: 5px;
         }
     </style>
 </head>
@@ -49,8 +54,8 @@
     height: 810px; 
     position: absolute;"></div>
     <main>
-        <section style="color:white">
-            <img src="../src/img/1.png" width="1000" height="750" style="position: absolute; margin-left: 440px;">
+        <section style="color:white; height: 810px">
+            <img src="../src/img/1.png" alt="photo.png" width="1000" height="750" style="position: absolute; margin-left: 440px;">
             <div style="position: absolute; 
             background-color: black; 
             width: 600px; 
@@ -78,7 +83,7 @@
                 display: flex;
                 justify-content: space-between; ">
                     <input class="radio1" type="radio" checked>
-                    <span class="radio-look"></span>
+                    <span class="radio-look2"></span>
                     <input class="radio1" type="radio">
                     <span class="radio-look"></span>
                     <input class="radio1" type="radio">
@@ -89,15 +94,12 @@
                     <span class="radio-look"></span>
                 </form>
                 <div style="margin-right: 74px;">
-                    <img width="30px" height="8px" src="../src/img/←.png" alt="стрелка-назад.png">
-                    <img width="30px" height="8px" src="../src/img/← (1).png" alt="стрелка-вперед.png">
+                    <img width="30px" height="8px" src="../src/img/←.png" alt="back.png">
+                    <img width="30px" height="8px" src="../src/img/← (1).png" alt="forward.png">
                 </div>
             </div>
             <div style="position: absolute; margin-top: 150px;">
-                <div style="font-size: 80px; 
-                font-weight: 400; 
-                line-height: 90px; 
-                letter-spacing: 5px;">WELCOME<br>TO THE LOUVRE</div>
+                <div class="title">WELCOME<br>TO THE LOUVRE</div>
                 <div style="font-size: 28px; 
                 font-weight: 300; 
                 font-family: 'Roboto', sans-serif;
@@ -116,6 +118,22 @@
                 margin-top: 75px;
                 line-height: 25.78px;
                 letter-spacing: 2px;">
+            </div>
+        </section>
+        <section id="visiting" height="1116px" style="color: black; margin-top: 75px;">
+            <div class="title">VIRTUAL TOUR</div>
+            <div style="margin-top: 25px; width:1440px; height: 3px; background-color: rgba(113, 7, 7, 1);"></div>
+            <div style="margin-top: 78px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <img src="../src/img/Rectangle.jpg" alt="photo.jpg">
+                    <img src="../src/img/Rectangle (1).jpg" alt="photo.jpg">
+                    <img src="../src/img/Rectangle (2).jpg" alt="photo.jpg">
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 75px;">
+                    <img src="../src/img/Rectangle (3).jpg" alt="photo.jpg">
+                    <img src="../src/img/Rectangle (4).jpg" alt="photo.jpg">
+                    <img src="../src/img/Rectangle (5).jpg" alt="photo.jpg">
+                </div>
             </div>
         </section>
     </main>
