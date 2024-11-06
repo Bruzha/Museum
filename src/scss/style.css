@@ -120,12 +120,6 @@ header nav form {
   display: flex;
   justify-content: space-between;
 }
-header nav form a {
-  text-decoration: none;
-  color: white;
-  line-height: 25.78px;
-  letter-spacing: 2px;
-}
 header div {
   font-size: 28px;
   font-weight: 400;
@@ -140,4 +134,17 @@ main {
   height: 8717px;
   display: flex;
   flex-direction: column;
+}
+
+footer {
+  font-size: 22px;
+  font-weight: 200;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  line-height: 25.78px;
+  letter-spacing: 2px;
 }/*# sourceMappingURL=style.css.map */
