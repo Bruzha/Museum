@@ -6,10 +6,49 @@ body {
   flex-direction: column;
 }
 
+.photo1 {
+  width: 440px;
+  height: 285px;
+}
+
 .style1 {
   background-color: black;
   display: flex;
   justify-content: center;
+}
+
+.line1 {
+  background-color: rgb(113, 7, 7);
+  height: 2px;
+  width: 300px;
+  margin-top: 10px;
+}
+
+.title2 {
+  margin-top: 25px;
+  font-family: "Forum", serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35.33px;
+  letter-spacing: 5px;
+  color: rgb(0, 0, 0);
+}
+
+.text1 {
+  color: rgb(0, 0, 0);
+  font-weight: 200;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.text2 {
+  font-size: 22px;
+  line-height: 25.78px;
+}
+
+.text3 {
+  font-size: 18px;
+  line-height: 21.09px;
 }
 
 header {
