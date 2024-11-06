@@ -15,7 +15,13 @@ body {
     display: flex;
     justify-content: center;
 }
-
+.phTop{
+    margin-top: 24px;
+}
+.flexBeetween{
+    display: flex;
+    justify-content: space-between;
+}
 .line1{
     background-color: rgba(113, 7, 7, 1);
     height: 2px;

@@ -17,6 +17,15 @@ body {
   justify-content: center;
 }
 
+.phTop {
+  margin-top: 24px;
+}
+
+.flexBeetween {
+  display: flex;
+  justify-content: space-between;
+}
+
 .line1 {
   background-color: rgb(113, 7, 7);
   height: 2px;
