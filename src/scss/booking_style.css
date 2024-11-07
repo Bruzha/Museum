@@ -5,7 +5,7 @@ body #d1, .flexBetween {
   justify-content: space-between;
 }
 
-body input, body select, body input[type=date], body input[type=time] {
+body input, body select {
   height: 45px;
   border: 1px solid rgb(3, 3, 3);
   margin-top: 20px;
@@ -13,7 +13,7 @@ body input, body select, body input[type=date], body input[type=time] {
   color: rgb(3, 3, 3);
 }
 
-#d2, .block, body input, body select, body input[type=date], body input[type=time] {
+#d2, .block, .b2, body input, body select {
   font-weight: 400;
   font-size: 18px;
   line-height: 21.09px;
@@ -26,6 +26,16 @@ body input, body select, body input[type=date], body input[type=time] {
   cursor: pointer;
 }
 
+.b2 {
+  background-color: rgb(3, 3, 3);
+  width: 32px;
+  height: 20px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  color: rgb(164, 164, 163);
+}
+
 .block {
   width: 35px;
   height: 25px;
@@ -33,6 +43,44 @@ body input, body select, body input[type=date], body input[type=time] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.size1 {
+  width: 15px;
+  height: 15px;
+}
+
+.font2 {
+  margin-left: 10px;
+  font-weight: 300;
+}
+
+.font3 {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 25.78px;
+  margin-left: 10px;
+}
+
+.font4 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.06px;
+}
+
+.card {
+  position: absolute;
+  width: 360px;
+  height: 211px;
+}
+
+.input {
+  height: 35px;
+  border: 0.5px solid rgb(164, 164, 163);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.06px;
+  color: rgb(22, 22, 21);
 }
 
 body {
@@ -45,8 +93,8 @@ body {
   color: rgb(3, 3, 3);
 }
 body #d1 {
-  height: 663px;
   width: 970px;
+  height: 663px;
 }
 body #d1 img {
   width: 85px;
@@ -76,7 +124,30 @@ body input, body select {
   margin-top: 5px;
 }
 
+.title3 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 37.5px;
+}
+
+#title4 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 25.78px;
+  color: rgb(113, 7, 7);
+}
+
 #d2 {
   margin-top: 15px;
   color: rgb(113, 7, 7);
+}
+
+#b3 {
+  margin-top: 285px;
+  margin-left: 250px;
+  background-color: rgb(113, 7, 7);
+  color: white;
+  font-weight: 400px;
+  width: 220px;
+  height: 45px;
 }/*# sourceMappingURL=booking_style.css.map */
