@@ -15,6 +15,7 @@ body {
   background-color: black;
   display: flex;
   justify-content: center;
+  width: 1920px;
 }
 
 .phTop {
@@ -111,6 +112,10 @@ header {
   display: flex;
   align-items: center;
 }
+header img {
+  width: 49px;
+  height: 26px;
+}
 header nav {
   margin-left: auto;
   width: 775px;
@@ -136,15 +141,89 @@ main {
   flex-direction: column;
 }
 
-footer {
+#f1 {
   font-size: 22px;
   font-weight: 200;
   color: white;
+  height: 268px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 87px;
+  width: 1440px;
+}
+
+#f2 {
+  height: 74px;
+  width: 1440px;
+  background-color: black;
+  padding-left: 240px;
+  padding-right: 240px;
+  padding-top: 47px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 2px;
+  line-height: 22px;
+  font-size: 22px;
+  font-weight: 200;
 }
 
 a {
   text-decoration: none;
   color: white;
   line-height: 25.78px;
-  letter-spacing: 2px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.divTopF {
+  margin-top: 25px;
+}
+
+.radio1 {
+  opacity: 0;
+  position: absolute;
+}
+
+.radio-look {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+}
+
+.radio-look2 {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(210, 177, 131);
+}
+
+.radio-look0 {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.radio-look3 {
+  background-color: rgb(153, 153, 153);
+}
+
+.radio-look4 {
+  background-color: rgb(51, 51, 51);
+}
+
+.title {
+  font-family: "Forum", serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 90px;
+  letter-spacing: 5px;
+}
+
+.radio-style2 {
+  width: 17px;
+  height: 17px;
+  accent-color: black;
 }/*# sourceMappingURL=style.css.map */
