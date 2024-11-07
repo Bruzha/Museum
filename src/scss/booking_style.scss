@@ -1,15 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
 
+
+$font-forum: "Forum", serif;
+$font-roboto: 'Roboto', sans-serif;
+$color-gold: rgba(157, 134, 101, 1);
+$color-red: rgba(113, 7, 7, 1);
+
+%flex-spase-between-G{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 body{
     height: 845px;
     width: 1440px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $font-roboto;
 
-    div{
+    #d1{
         height: 663px;
         width: 970px;
+        @extend %flex-spase-between-G;
+
+        img{
+            width: 85px;
+            height: 41px;
+        }
     }
+}
+
+
+#title{
+    font-family: $font-forum;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 55.2px;
+    color: $color-gold;
+}
+#d2{
+    margin-top: 15px;
+    color:$color-red;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.09px;
 }
