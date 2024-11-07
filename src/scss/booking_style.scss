@@ -6,12 +6,44 @@ $font-forum: "Forum", serif;
 $font-roboto: 'Roboto', sans-serif;
 $color-gold: rgba(157, 134, 101, 1);
 $color-red: rgba(113, 7, 7, 1);
+$color-black-1: rgba(3, 3, 3, 1);
 
 %flex-spase-between-G{
     display: flex;
     justify-content: space-between;
 }
+%border{
+    height: 45px;
+    border: 1px solid $color-black-1;
+    margin-top: 20px;
+    display: block;
+    color:$color-black-1;
+    @extend %font;
+}
+%font{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.09px;
+}
 
+.flexBetween{
+    @extend %flex-spase-between-G;
+}
+.b1{
+    background-color: $color-black-1;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.block{
+    width: 35px;
+    height: 25px;
+    border: 1px solid $color-black-1;
+    @extend %font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 body{
     height: 845px;
@@ -20,6 +52,7 @@ body{
     justify-content: center;
     align-items: center;
     font-family: $font-roboto;
+    color: $color-black-1;
 
     #d1{
         height: 663px;
@@ -31,6 +64,15 @@ body{
             height: 41px;
         }
     }
+    input[type=date], input[type=time]{
+        width: 190px;
+        @extend %border;
+    }
+
+    input, select{
+        width: 400px;
+        @extend %border;
+    }
 }
 
 
@@ -41,10 +83,16 @@ body{
     line-height: 55.2px;
     color: $color-gold;
 }
+#title2{
+    font-family: $font-forum;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19.87px;
+    color: $color-gold;
+    margin-top: 5px;
+}
 #d2{
     margin-top: 15px;
     color:$color-red;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21.09px;
+    @extend %font;
 }

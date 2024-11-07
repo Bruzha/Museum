@@ -1,8 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
-body #d1 {
+body #d1, .flexBetween {
   display: flex;
   justify-content: space-between;
+}
+
+body input, body select, body input[type=date], body input[type=time] {
+  height: 45px;
+  border: 1px solid rgb(3, 3, 3);
+  margin-top: 20px;
+  display: block;
+  color: rgb(3, 3, 3);
+}
+
+#d2, .block, body input, body select, body input[type=date], body input[type=time] {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.09px;
+}
+
+.b1 {
+  background-color: rgb(3, 3, 3);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.block {
+  width: 35px;
+  height: 25px;
+  border: 1px solid rgb(3, 3, 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 body {
@@ -12,6 +42,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  color: rgb(3, 3, 3);
 }
 body #d1 {
   height: 663px;
@@ -20,6 +51,12 @@ body #d1 {
 body #d1 img {
   width: 85px;
   height: 41px;
+}
+body input[type=date], body input[type=time] {
+  width: 190px;
+}
+body input, body select {
+  width: 400px;
 }
 
 #title {
@@ -30,10 +67,16 @@ body #d1 img {
   color: rgb(157, 134, 101);
 }
 
+#title2 {
+  font-family: "Forum", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.87px;
+  color: rgb(157, 134, 101);
+  margin-top: 5px;
+}
+
 #d2 {
   margin-top: 15px;
   color: rgb(113, 7, 7);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 21.09px;
 }/*# sourceMappingURL=booking_style.css.map */
