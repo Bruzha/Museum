@@ -1,0 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+body {
+  height: 845px;
+  width: 1440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body div {
+  height: 663px;
+  width: 970px;
+}/*# sourceMappingURL=booking_style.css.map */
