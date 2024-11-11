@@ -24,9 +24,16 @@
           "author": "",
           "license": "ISC",
           "dependencies": {
+                    "@emotion/react": "^11.13.3",
+                    "@emotion/styled": "^11.13.0",
+                    "@mui/material": "^6.1.6",
+                    "@mui/x-date-pickers": "^7.22.2",
                     "css-loader": "^7.1.2",
+                    "date-fns": "^4.1.0",
+                    "pikaday": "^1.8.2",
                     "sass": "^1.80.6",
                     "sass-loader": "^16.0.3",
-                    "style-loader": "^4.0.0"
+                    "style-loader": "^4.0.0",
+                    "timescape": "^0.6.1"
           }
 }

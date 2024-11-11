@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../src/scss/booking_style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
 </head>
 <body>
     <div id="d1">
@@ -17,12 +18,12 @@
             <div style="background-color: rgba(116, 12, 17, 1); height: 3px; width: 400px; margin-top: 10px;"></div>
             <div class="flexBetween mt-20" style="margin-top: 40px;">
                 <div id="input1" class="input-style flexBetween flex-center-V">
-                    <div>Date</div>
-                    <input type="date" class="border">
+                    <div class="border">Date</div>
+                    <input type="date" class="arrow">
                 </div>
                 <div id="input2" class="input-style flexBetween flex-center-V">
-                    <div>Time</div>
-                    <input type="time" class="border">
+                    <div class="border">Time</div>
+                    <input type="time" class="arrow">
                 </div>                
             </div>
             <div id="input3" class="input-style2 flexBetween mt-20 flex-center-V">
@@ -35,8 +36,14 @@
                 <input type="tel" value="Phone">
             </div>
             <div id="input6" class="input-style2 flexBetween mt-20 flex-center-V">
-                <select size="2">
-                    <option disabled>Ticket Type</option>
+                <div class="border" style="width: 315px;">Ticket Type</div>
+                <select class="arrow">
+                    <option></option>
+                    <option>Regular</option>
+                    <option>Double</option>
+                    <option>Napoleon Hall</option>
+                    <option>Audio Guides</option>
+                    <option>Excursions</option>
                 </select>
             </div>
             <div style="border: 1px solid rgba(3, 3, 3, 1); width: 370px; height: 135px; margin-top: 20px; padding-left: 15px; padding-right: 15px;">
@@ -44,15 +51,15 @@
                 <div style="background-color: rgba(116, 12, 17, 1); height: 2px; width: 370px; margin-top: 5px;"></div>
                 <div style="display: flex; justify-content: space-between;">
                     <div style="margin-top: 24px;">Basic 18+ (20 €)</div>
-                    <div style="display: flex; flex-direction: row; margin-top: 15px;">
+                    <div class="block_buttons">
                         <div class="b1 block">–</div>
                         <div class="block">2</div>
                         <div class="b1 block">+</div>
                     </div>
                     </div>
-                <div style="display: flex; justify-content: space-between;">
+                <div class="flexBetween">
                     <div style="margin-top: 21px;">Senior 65+ (10 €)</div>
-                    <div style="display: flex; flex-direction: row; margin-top: 15px;">
+                    <div class="block_buttons">
                         <div class="b1 block">–</div>
                         <div class="block">2</div>
                         <div class="b1 block">+</div>
@@ -65,15 +72,15 @@
                 <div>
                     <div class="title3">Overview</div>
                     <div id="title4">Tour to Louvre</div>
-                    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 10px;">
+                    <div class="texts" style="margin-top: 10px;">
                         <img style="width: 15px; height: 15px;" src="../src/img/date.png" alt="icon.png">
                         <div class="font2">Friday, August 19</div>
                     </div>
-                    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 5px;">
+                    <div class="texts">
                         <img style="width: 15px; height: 15px;" src="../src/img/Time.png" alt="icon.png">
                         <div class="font2">16 : 30</div>
                     </div>
-                    <div style="display: flex; flex-direction: row; align-items: center; margin-top: 5px;">
+                    <div class="texts">
                         <img style="width: 15px; height: 15px;" src="../src/img/check_circle_outline.png" alt="icon.png">
                         <div class="font2">Temporary exhibition</div>
                     </div>
@@ -118,10 +125,10 @@
             <img style="width: 55px; height: 16px; top: 449px; left: 991px; position: absolute;" src="../src/img/Visa.png" alt="marka.png">
             <img style="width: 53px; height: 32px; top: 480px; left: 993px; position: absolute;" src="../src/img/Mastercard.png" alt="marka.png">
             <div style="left:726px; position: absolute;">
-                <div class="font4" style="margin-top: 23px;">Card number</div>
+                <div class="font4" style="margin-top: 25px;">Card number</div>
                 <input class="input" type="text" style="margin-top: 4px; width: 215px;">
                 <div class="font4" style="margin-top: 10px;">Expiration date</div>
-                <div style="width: 213px; display: flex; justify-content: space-between; margin-top: -17px;">
+                <div class="flexBetween" style="width: 213px; margin-top: 3px;">
                     <input class="input" type="month" style="width: 100px;">
                     <input class="input" type="date" style="width: 100px;">
                 </div>
