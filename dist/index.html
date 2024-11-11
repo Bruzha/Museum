@@ -137,24 +137,24 @@
             </div>
             <iframe class="mt-75" width="1440" height="735" src="https://www.youtube.com/embed/zp1BXPX8jcU?si=Zy4Job7HFMv4NsT5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div style="margin-top: 40px; display: flex; justify-content: space-between;">
-                <iframe class="frame" src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=H85tY1qiikp8xfTx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="frame" src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=WhHSVVS17bNR0Rx9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <iframe class="frame" src="https://www.youtube.com/embed/NOhDysLnTvY?si=5t7R4CF4vOVp_k1n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="frame1" class="frame" src="https://www.youtube.com/embed/aWmJ5DgyWPI?si=H85tY1qiikp8xfTx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="frame2" class="frame" src="https://www.youtube.com/embed/Vi5D6FKhRmo?si=WhHSVVS17bNR0Rx9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="frame3" class="frame" src="https://www.youtube.com/embed/NOhDysLnTvY?si=5t7R4CF4vOVp_k1n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div id="d6">
                 <form class="flexBeetween" style="width: 200px; height: 12px; margin-top: 40px; ">
-                    <img src="../src/img/Vector (Stroke) (1).png" alt="back.png" width="10">
+                    <img src="../src/img/Vector (Stroke) (1).png" alt="back.png" width="10" style="cursor: pointer;" onclick="changeVideo();">
                     <input class="radio1" type="radio" checked>
-                    <span class="radio-look4"></span>
+                    <span id="span21" class="radio-look4"></span>
                     <input class="radio1" type="radio">
-                    <span class="radio-look3"></span>
+                    <span id="span22" class="radio-look3"></span>
                     <input class="radio1" type="radio">
-                    <span class="radio-look3"></span>
+                    <span id="span23" class="radio-look3"></span>
                     <input class="radio1" type="radio">
-                    <span class="radio-look3"></span>
+                    <span id="span24" class="radio-look3"></span>
                     <input class="radio1" type="radio">
-                    <span class="radio-look3"></span>
-                    <img src="../src/img/Vector (Stroke).png" alt="forward.png" width="10">
+                    <span id="span25" class="radio-look3"></span>
+                    <img src="../src/img/Vector (Stroke).png" alt="forward.png" width="10" style="cursor: pointer;">
                 </form>
             </div>
         </section>
@@ -273,5 +273,7 @@
     <div>The Rolling Scopes School</div>
     <div>Username</div>
 </footer>
+
+<script src="../src/js/index.js"></script>
 </body>
 </html>
