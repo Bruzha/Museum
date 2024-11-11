@@ -15,8 +15,6 @@ $color-grey: rgba(164, 164, 163, 1);
 }
 %border{
     height: 45px;
-    border: 1px solid $color-black-1;
-    margin-top: 20px;
     display: block;
     color:$color-black-1;
     @extend %font;
@@ -88,6 +86,71 @@ $color-grey: rgba(164, 164, 163, 1);
     color: rgba(22, 22, 21, 1);
 
 }
+.input-style{
+    border: 1px solid $color-black-1;
+    height: 45px;
+    width: 190px;
+}
+.input-style2{
+    border: 1px solid $color-black-1;
+    height: 45px;
+    width: 400px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.border{
+    @extend %border;
+}
+.flex-center-V{
+    display:flex; 
+    align-items: center;
+}
+#input1::before{
+    content:url('../src/img/date.png');
+    width: 15px;
+}
+#input1::after{
+    content: url('../img/arrow.png');
+    width: 17px;
+}
+#input2::before{
+    content:url('../src/img/Time.png');
+    width: 15px;
+}
+#input2::after{
+    content: url('../img/arrow.png');
+    width: 17px;
+}
+#input3::before{
+    content:url('../src/img/name.png');
+    width: 13px;
+}
+#input4::before{
+    content:url('../src/img/email.png');
+    width: 15px;
+}
+#input5::before{
+    content:url('../src/img/tel.png');
+    width: 14px;
+}
+#input6::before{
+    content:url('../src/img/ballot.png');
+    width: 15px;
+}
+#input6::after{
+    content: url('../img/arrow.png');
+    width: 17px;
+}
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+   
+select::-ms-expand {
+    display: none;
+}
 
 body{
     height: 845px;
@@ -109,12 +172,18 @@ body{
         }
     }
     input[type=date], input[type=time]{
-        width: 190px;
+        width: 140px;
+    }
+
+    input::-webkit-calendar-picker-indicator{
+        opacity: 0;
     }
 
     input, select{
         width: 400px;
         @extend %border;
+        border: none;
+        height: 40px;
     }
 }
 
