@@ -143,7 +143,7 @@
             </div>
             <div id="d6">
                 <form class="flexBeetween" style="width: 200px; height: 12px; margin-top: 40px; ">
-                    <img id="arrow21" src="../src/img/Vector (Stroke) (1).png" alt="back.png" width="10" style="cursor: pointer;" onclick="changeVideo();">
+                    <img id="arrow21" src="../src/img/Vector (Stroke) (1).png" alt="back.png" width="10" style="cursor: pointer;" onclick="test();">
                     <input class="radio1" type="radio" checked>
                     <span id="span21" class="radio-look3"></span>
                     <input class="radio1" type="radio">
@@ -195,15 +195,15 @@
                     <div class="div4">Ticket Type</div>
                     <form class="text2" style="margin-top: 50px;">
                         <div class="div3">
-                            <input name="r1" class="radio-style2" type="radio">
+                            <input id="r1" name="r1" class="radio-style2" type="radio">
                             <div class="div2">Permanent exhibition</div>
                         </div>
                         <div class="div3">
-                            <input name="r1" class="radio-style2" type="radio">
+                            <input id="r2" name="r1" class="radio-style2" type="radio">
                             <div class="div2">Temporary exhibition</div>
                         </div>
                         <div class="div3">
-                            <input name="r1" class="radio-style2" type="radio">
+                            <input id="r3" name="r1" class="radio-style2" type="radio">
                             <div class="div2">Combined Admission</div>
                         </div>
                     </form>
@@ -212,17 +212,17 @@
                     <div class="div4">Amount</div>
                     <div class="text2 mt-25">Basic 18+</div>
                     <div class="div5 text2">
-                        <div class="text5" style="margin-left: 11px;">-</div>
-                        <div style="margin-left: 47px;">1</div>
-                        <div class="text5" style="margin-left: 43px;">+</div>
+                        <div id="minus1" class="text5" style="margin-left: 11px;">-</div>
+                        <div id="count1" style="margin-left: 47px; width: 20px;">0</div>
+                        <div id="plus1" class="text5" style="margin-left: 43px;">+</div>
                     </div>
                     <div class="text2" style="margin-top: 10px;">Senior 65+</div>
                     <div class="div5 text2">
-                        <div class="text5" style="margin-left: 11px;">-</div>
-                        <div style="margin-left: 47px;">1</div>
-                        <div class="text5" style="margin-left: 43px;">+</div>
+                        <div id="minus2" class="text5" style="margin-left: 11px;">-</div>
+                        <div id="count2" style="margin-left: 47px; width: 20px;">0</div>
+                        <div id="plus2" class="text5" style="margin-left: 43px;">+</div>
                     </div>
-                    <div class="div4" style="margin-top: 50px;">Total €220</div>
+                    <div id="cost" class="div4" style="margin-top: 50px;">Total €0</div>
                     <input class="text2" type="button" id="b2" value="Buy Now">
                 </div>
             </div>

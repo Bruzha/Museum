@@ -6,44 +6,60 @@ import _ from 'lodash';
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
   return element;
+}*/
+
+let count = 0;
+let minus = document.getElementById('minus1');
+minus.onclick = function () {
+  count--;
+  if (count < 0) document.getElementById('count1').textContent = 0;
+  else document.getElementById('count1').textContent = count;
+
+  Cost();
+};
+let plus = document.getElementById('plus1');
+plus.onclick = function () {
+  if (count < 0) count = 0;
+  count++;
+  document.getElementById('count1').textContent = count;
+
+  Cost();
+};
+let count2 = 0;
+let minus2 = document.getElementById('minus2');
+minus2.onclick = function () {
+  count2--;
+  if (count2 < 0) document.getElementById('count2').textContent = 0;
+  else document.getElementById('count2').textContent = count2;
+
+  Cost();
+};
+let plus2 = document.getElementById('plus2');
+plus2.onclick = function () {
+  if (count2 < 0) count2 = 0;
+  count2++;
+  document.getElementById('count2').textContent = count2;
+
+  Cost();
+};
+
+let cost = 0;
+document.getElementById('r1').onchange = () => {
+  cost = 12;
+  Cost();
+};
+document.getElementById('r2').onchange = () => {
+  cost = 14;
+  Cost();
+};
+document.getElementById('r3').onchange = () => {
+  cost = 16;
+  Cost();
+};
+
+function Cost() {
+  let count3 = document.getElementById('count1').textContent;
+  let count4 = document.getElementById('count2').textContent;
+  document.getElementById('cost').textContent =
+    'Total €' + (cost * count3 + cost * count4).toString();
 }
-
-document.body.appendChild(component());*/
-
-let items = document.querySelectorAll('.frame');
-const radios = document.querySelectorAll('.radio-look3');
-const prevButton = document.getElementById('arrow21')
-const nextButton = document.getElementById('arrow22')
-let currentIndex = 0;
-
-items.push(<iframe class="frame" src="https://www.youtube.com/embed/T65C91rTjn0?si=_Qn_fBSpj6xNOGTA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>);
-items.push(<iframe class="frame" src="https://www.youtube.com/embed/VVj-2Jdtl4o?si=qD8JeKHZEh9ZFVQ7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>)
-
-function updateCarousel() {
-    const offset = -currentIndex * 100;
-    document.querySelector('.carousel-inner').style.transform = translateX(${offset}%);
-
-    radios.forEach((radio, index) => {
-        radio.checked = index === currentIndex;
-    });
-}
-
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
-    updateCarousel();
-});
-
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0;
-    updateCarousel();
-});
-
-// Чтобы переключение работало при клике на радио-кнопки
-radios.forEach((radio, index) => {
-    radio.addEventListener('change', () => {
-        if (radio.checked) {
-            currentIndex = index;
-            updateCarousel();
-        }
-    });
-});
