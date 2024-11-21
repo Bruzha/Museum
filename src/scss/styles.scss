@@ -1,0 +1,40 @@
+//Libs
+@import "~modern-normalize/modern-normalize.css";
+// Configuration
+@import "base/variables";
+//Base
+@import "base/fonts";
+@import "base/mixins";
+@import "base/root";
+// Layout & components
+@import "base/reboot";
+// Mixes
+// Blocks
+// @import "blocks/socials";
+// @import "blocks/title";
+
+// //Sections
+@import "sections/header.scss";
+@import "sections/welcome.scss";
+// @import "sections/header/profile-dropdown.scss";
+// //Main page
+// @import "sections/main/main";
+// @import "sections/main/hero";
+@import "sections/visiting.scss";
+@import "sections/explore.scss";
+@import "sections/video.scss";
+@import "sections/gallery.scss";
+@import "sections/tickets.scss";
+// @import "sections/main/tickets/form";
+// @import "sections/main/tickets/form---overview";
+@import "sections/parallax.scss";
+@import "sections/contacts";
+// //User page
+// @import "sections/user";
+// //Admin page
+// @import "sections/admin";
+@import "sections/footer";
+// //Login page
+// @import "sections/login";
+// //Register page
+// @import "sections/register";

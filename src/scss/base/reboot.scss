@@ -1,0 +1,50 @@
+html,
+body {
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 100vh;
+  min-width: 320px;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    border-radius: 100px;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--palette-primary-dark);
+    border-radius: 100px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--palette-primary-main);
+  }
+}
+
+ul,
+ol,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  all: unset;
+}

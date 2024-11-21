@@ -1,0 +1,303 @@
+.welcome{
+
+    @include media-breakpoint-down(sm){
+        height: 544px;
+        &__img{
+            width: 96%;
+            height: auto;
+            margin-top:179px;
+        }
+        &__title{
+            font-size: 28px;
+            line-height: 40px;
+            margin-top: 5px;
+        }
+        &__subtitle{
+            font-size: 16px;
+            line-height: 18.75px;
+        }
+        &__caroisel{
+            width:230px;
+            margin-top: 490px;
+        }
+        &__counter{
+            font-size: 16px;
+            width: 50px;
+        }
+        &__span{
+            width: 7px;
+            height: 7px;
+        }
+        &__form{
+            width: 75px;
+        }
+        &__arrow{
+            width: 20px;
+        }
+        &__arrows{
+            width: 55px;
+        }
+    }
+
+
+    @include media-breakpoint-between(sm, md){
+        height: 861px;
+        &__img{
+            width: 96%;
+            height: auto;
+            margin-top:215px;
+        }
+        &__title{
+            font-size: 40px;
+            line-height: 60px;
+        }
+        &__subtitle{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        &__caroisel{
+            width: 401px;
+            margin-top: 770px;
+        }
+    }
+
+    @include media-breakpoint-between(sm, xl){
+        &__counter{
+            font-size: 20px;
+            width: 71px;
+        }
+        &__span{
+            width: 12px;
+            height: 12px;
+        }
+    }
+    @include media-breakpoint-up(sm){
+        &__form{
+            width: 180px;
+        }
+        &__arrow{
+            width: 30px;
+        }
+        &__arrows{
+            width: 80px;
+        }
+    }
+
+    @include media-breakpoint-down(md){
+        display: flex;
+        flex-direction: column;
+        &__button, &__a{
+            display: none;
+        }
+        &__title, &__subtitle{
+            text-align: center;
+        }
+        &__caroisel{
+            height: 40px;
+        }
+        &__div-img{
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-between(md, xl){
+        height: 585px;
+        
+        &__img{
+            width: 700px;
+            height: 525px;
+            top: 0;
+        }
+        &__div-img{
+            margin-right: 0;
+            margin-left: auto;
+            height: 585px;
+        }
+        &__shadow{
+            width: 210px;
+            height: 525px;
+            left: 0;
+            top:0;
+        }
+        &__a{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        &__button{
+            width: 300px;
+            height: 60px;
+            margin-top: 50px;
+        }
+        &__title{
+            font-size: 50px;
+            margin-top: -130px;
+        }
+        &__subtitle{
+            font-size: 24px;
+            line-height: 28.13px;
+        }
+        &__caroisel{
+            width: 700px;
+            right: 0;
+            bottom: 0;
+        }
+        &__counter{
+            margin-left: 224px;
+        }
+        &__arrows{
+            margin-right: 75px;
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        &__title{
+            line-height: 90px;
+        }
+        &__caroisel{
+            height: 120px;
+        }
+    }
+
+    @include media-breakpoint-down(xl){
+        padding-inline: 20px;
+        &__img{
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    @include media-breakpoint-up(xl){
+        height: 842px;
+        padding-inline: 12.3%;
+
+        &__img{
+            width: 1000px;
+            height: 750px;
+            left: 0;
+            top: 0;
+        }
+        &__div-img{
+            margin-right: 0;
+            margin-left: auto;
+            height: 810px;
+        }
+        &__shadow{
+            width: 300px;
+            height: 750px;
+            left: 0;
+            top: 0;
+        }
+        &__a{
+            font-size: 22px;
+            line-height: 25.78px;
+        }
+        &__button{
+            margin-top: 75px;
+            width: 360px;
+            height: 75px;
+            margin-left: 1px;
+        }
+        &__title{
+            font-size: 80px;
+        }
+        &__subtitle{
+            font-size: 28px;
+            line-height: 32.81px;
+        }
+        &__caroisel{
+            width: 600px;
+            right: 0;
+            bottom: 0;
+            margin-top: 690px;
+        }
+        &__counter{
+            font-size: 22px;
+            width: 76px;
+            margin-left: 74px;
+        }
+        &__span{
+            width: 16px;
+            height: 16px;
+        }
+        &__arrows{
+            margin-right: 74px;
+        }
+    }
+
+    width: 100%;
+    position: relative;
+    background-color: var(--palette-primary-main);
+    @extend %flex-center-V;
+    @extend %flex-spase-between-G;
+    color:var(--palette-primary-light);
+    font-weight: var(--typography-fontWeightLight);
+
+    &__div-img{
+        position: relative;
+    }
+
+    &__text{
+        position: absolute;
+    }
+
+    &__shadow{
+        background: linear-gradient(to right, var(--palette-primary-main), var(--palette-primary-main-opacity));
+        position: absolute;
+    }
+
+    &__title{
+        font-family: var(--typography-fontFamily-headings);
+        letter-spacing: 5px;
+    }
+
+    &__subtitle{
+        font-family: var(--typography-fontFamily);
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
+    &__button{
+        text-align: center;
+        background-color: var(--palette-primary-dark);
+        border-radius: 9px;
+        letter-spacing: 2px;
+        font-family: var(--typography-fontFamily);
+        @extend %flex-center-V;
+        @extend %flex-center-G;
+        cursor: pointer;
+    }
+
+    &__caroisel{
+        background-color: var(--palette-primary-main);
+        position: absolute;
+        @extend %flex-row;
+        @extend %flex-spase-between-G;
+        @extend %flex-center-V;
+    }
+    &__counter{
+        @extend %flex-spase-between-G;
+        @extend %flex-row;
+        line-height: 40px;
+        height: 40px;
+    }
+    &__radio{
+        opacity: 0;
+    }
+    &__span{
+        background-color: white;
+    }
+    &__span-1{
+        background-color: var(--palette-secondary-light);
+    }
+    &__form{
+        @extend %flex-spase-between-G;
+        @extend  %flex-row;
+    }
+    &__arrow{
+        height: 8px;
+        cursor: pointer;
+    }
+    &__arrows{
+        @extend %flex-spase-between-G;
+    }
+}
