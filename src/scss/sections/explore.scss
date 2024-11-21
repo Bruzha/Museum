@@ -1,0 +1,164 @@
+.explore{
+    @include media-breakpoint-down(sm){
+        height: 600px;
+
+        &__title{
+            font-size: 28px;
+            line-height: 40px;
+        }
+        &__img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @include media-breakpoint-between(sm, xl){
+    }
+
+    @include media-breakpoint-between(sm, md){
+        height: 908px;
+
+        &__title{
+            font-size: 40px;
+            line-height: 60px;
+        }
+        &__img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    @include media-breakpoint-down(md){
+        margin-top: var(--margin-top-40);
+
+        &__paragraf{
+            display: none;
+        }
+        &__container{
+            margin-top: var(--margin-top-40);
+        }
+        &__img{
+            margin-top: var(--margin-top-40);
+        }
+        &__title{
+            margin-top: var(--margin-top-40);
+        }
+        &__div{
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @include media-breakpoint-between(md, xl){
+        height: 1149px;
+        margin-top: var(--margin-top-60);
+
+        &__title{
+            font-size: 50px;
+            line-height: 75px;
+            margin-top: var(--margin-top-60);
+        }
+        &__paragraf{
+            font-size: 20px;
+        }
+        &__img{
+            width: 70.31vw;
+            height: auto;
+            margin-top: var(--margin-top-60);
+            margin-left: 12.89vw;
+            max-width: 720px;
+        }
+        &__container{
+            margin-top: var(--margin-top-60);
+        }
+        &__paragraf-1{
+            margin-top: 60px;
+        }
+        &__paragraf-3{
+            display: none;
+        }
+    }
+
+    @include media-breakpoint-down(xl){
+        padding-inline: 20px;
+
+        &__container{
+            display: flex;
+            flex-direction: column;
+        }
+        &__line{
+            margin-top: 20px;
+        }
+        &__line{
+            width: 100%;
+        }
+    }
+
+    @include media-breakpoint-up(xl){
+        height: 865px;
+        padding-inline: 12.3%;
+        margin-top: var(--margin-top-75);
+
+        &__title{
+            font-size: 65.5px;
+            line-height: 90px;
+            width: 35.38vw;
+            margin-top: var(--margin-top-75);
+        }
+        &__paragraf-1{
+            margin-top: 75px;
+        }
+        &__paragraf-2, &__paragraf-3{
+            margin-top: 25px;
+        }
+        &__paragraf{
+            font-size: 22px;
+            width: 34.38vw;
+        }
+        &__container{
+            margin-top: var(--margin-top-75);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+            width: 75%;
+        }
+        &__img{
+            left: 50vw;
+            width: 37.50vw;
+            margin-top: 90px;
+            max-width: 720px;
+        }
+        &__slider{
+            left: 75.93vw;
+            width: 2.03vw;
+            height: auto;
+        }
+        &__line{
+            width: 34.38vw;
+            margin-top: 25px;
+        }
+    }
+
+    width: 100%;
+    background-color: var(--palette-primary-main);
+    color: var(--palette-primary-light);
+    font-weight: var(--typography-fontWeightLight);
+
+    &__title{
+        font-family: var(--typography-fontFamily-headings);
+        letter-spacing: 5px;
+    }
+    &__paragraf{
+        line-height: 38.5px;
+        font-family: var(--typography-fontFamily);
+    }
+    &__words{
+        color: var(--palette-tertiary-text);
+    }
+
+    &__line{
+        background-color: var(--palette-primary-dark);
+        height: 3px;
+    }
+}

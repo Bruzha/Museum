@@ -1,0 +1,26 @@
+$font-base-url: "../../fonts/";
+@font-face {
+  font-family: "Forum", serif;
+  src: local("Forum"), url("#{font-base-url}Forum/Forum.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("#{font-base-url}Roboto/Roboto-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: local("Roboto Light"), local("Roboto-Light"),
+    url("#{font-base-url}Robot/Roboto-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
