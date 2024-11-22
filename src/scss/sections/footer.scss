@@ -1,0 +1,245 @@
+.footer{
+    @include media-breakpoint-down(sm){
+        height: 400px;
+
+        &__logo{
+            width: 29px;
+            height: 16px;
+        }
+        &__title{
+            line-height: 17.66px;
+            margin-left: 20px;
+        }
+        &__a{
+            line-height: 18.75px;
+        }
+        &__a-down, &__a, &__title{
+            font-size: 16px;
+        }
+        &__container-social{
+            width: 61.90vw;
+            margin-top: 40px;
+        }
+        &__a-down-school{
+            display: none;
+        }
+        &__div-a{
+            display: grid;
+            grid-template-columns: repeat(3, 126.7px);
+            column-gap: 3.62vw;
+            row-gap: 30px;
+            margin-left: 8%;
+            margin-top: var(--margin-top-40);
+        }
+        &__container-up{
+            display: flex;
+            flex-direction: column;
+        }
+        &__container-social{
+            margin-left: 14.29%;
+        }
+        &__icon{
+            width: 11.43vw;
+            height: 11.43vw;
+            background-size: 11.43vw 11.43vw;
+        }
+    }
+    @include media-breakpoint-between(sm, md){
+        &__title{
+            font-size: 19px;
+            line-height: 50px;
+            margin-top: -7px;
+        }
+        &__a{
+            font-size: 18px;
+            line-height: 21.09px;
+        }
+        &__div-a{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 24.09vw;
+            row-gap: 25px;
+        }
+        &__container-social{
+            margin-top: 42px;
+            margin-left: 38.8vw;
+            margin-right: 4.43vw;
+            width: 44.27vw;
+            max-width: 340px;
+            min-width: 260px;
+        }
+        &__container-up{
+            margin-right: 7.29vw;
+        }
+    }
+    @include media-breakpoint-between(sm, xl){
+        height: 411px;
+
+        &__logo{
+            width: 49px;
+            height: 26px;
+        }
+    }
+    @include media-breakpoint-up(sm){
+        &__a-down{
+            font-size: 22px;
+        }
+        &__container-up{
+            display: flex;
+            justify-content: space-between;
+            gap:20px;
+        }
+        &__title{
+            margin-left: 25px;
+        }
+        &__icon{
+            width: 48px;
+            height: 48px;
+        }
+    }
+    @include media-breakpoint-down(md){
+        margin-top: var(--margin-top-40);
+        &__container{
+            display: flex;
+            flex-direction: column;
+        }
+        &__container-up, &__line{
+            margin-top: var(--margin-top-40);
+        }
+        &__container-down{
+            margin-top: 38px;
+        }
+    }
+    @include media-breakpoint-up(md){
+        &__title{
+            font-size: 28px;
+            line-height: 30.91px;
+        }
+        &__a{
+            font-size: 22px;
+            line-height: 25.78px;
+        }
+        &__container{
+            display: flex;
+            justify-content: space-between;
+            gap:20px;
+        }
+        &__container-down{
+            margin-top: 48px;
+        }
+    }
+    @include media-breakpoint-between(md, xl){
+        height: 384px;
+        margin-top: var(--margin-top-60);
+
+        &__div-a{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 9.77vw;
+            row-gap: 25px;
+            margin-left: 4.39vw;
+        }
+        &__container-up{
+            width: 53.91vw;
+            margin-top: var(--margin-top-60);
+        }
+        &__container-social{
+            margin-top: 145px;
+        }
+        &__line{
+            margin-top: 35px;
+        }
+        &__container-social{
+            width: 33.20vw;
+            max-width: 340px;
+            min-width: 260px;
+        }
+    }
+    @include media-breakpoint-down(xl){
+        &__container, &__container-down{
+            padding-inline: 20px;
+        }
+    }
+    @include media-breakpoint-up(xl){
+        height: 392px;
+        margin-top: var(--margin-top-75);
+
+        &__container, &__container-down{
+            padding-inline: 12.3%;
+        }
+        &__logo{
+            width: 50px;
+            height: 34px;
+        }
+        &__div-a{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 7.81vw;
+            row-gap: 25px;
+        }
+        &__container-up{
+            width: 38.61vw;
+            margin-top: var(--margin-top-75);
+        }
+        &__line{
+            margin-top: 35px;
+        }
+        &__container-social{
+            margin-top: 162px;
+        }
+        &__container-social{
+            width: 17.71vw;
+            max-width: 340px;
+            min-width: 260px;
+        }
+
+    }
+
+    width: 100%;
+    background-color: var(--palette-primary-main);
+    color: var(--palette-primary-text);
+    font-weight: var(--typography-fontWeightLight);
+
+    &__a, &__a-down{
+        color: var(--palette-primary-text);
+        letter-spacing: 2px;
+        font-family: var(--typography-fontFamily);
+    }
+    &__title{
+        letter-spacing: 5px;
+        font-family: var(--typography-fontFamily-headings);
+    }
+    &__a-down{
+        line-height: 22px;
+    }
+    &__icon-youtube{
+        background-image: url('../../img/socials/Youtube.png');
+    }
+    &__icon-instagram{
+        background-image: url('../../img/socials/Instagram.png');
+    }
+    &__icon-facebook{
+        background-image: url('../../img/socials/Facebook.png');
+    }
+    &__icon-twitter{
+        background-image: url('../../img/socials/Twitter.png');
+    }
+    &__icon-pinterest{
+        background-image: url('../../img/socials/Pinterest.png');
+    }
+    &__container-social, &__container-down{
+        @extend %flex-spase-between-G;
+        gap:20px;
+    }
+    &__container-down{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    &__container-logo{
+        @extend %flex-row;
+    }
+    &__line{
+        height: 2px;
+        background-color: var(--palette-tertiary-dark);
+    }
+}

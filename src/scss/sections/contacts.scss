@@ -1,0 +1,152 @@
+.contacts{
+
+    @include media-breakpoint-down(sm){
+        &__title{
+            font-size: 28px;
+            line-height: 40px;
+        }
+        &__frame{
+            height: 59.05vw;
+        }
+        &__subtitle, &__text{
+            font-size: 16px;
+            line-height: 18.75px;
+        }
+    }
+    @include media-breakpoint-between(sm, md){
+        &__title{
+            font-size: 40px;
+            line-height: 60px;
+        }
+        &__frame{
+            height: 61.98vw;
+        }
+        &__subtitle{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        &__text{
+            font-size: 18px;
+            line-height: 21.09px;
+        }
+    }
+    @include media-breakpoint-down(md){
+        &__title{
+            margin-top: var(--margin-top-40);
+        }
+        &__container{
+            display: flex;
+            flex-direction: column;
+        }
+        &__container{
+            margin-top: var(--margin-top-40);
+        }
+        &__text-1{
+            margin-top: 40px;
+        }
+        &__frame{
+            margin-top: var(--margin-top-40);
+            width: 100%;
+        }
+    }
+    @include media-breakpoint-between(md, xl){
+
+        &__title{
+            margin-top: var(--margin-top-60);
+            font-size: 50px;
+            line-height: 75px;
+        }
+        &__frame{
+            width: 67.77vw;
+            height: 44.34vw;
+        }
+        &__subtitle{
+            font-size: 24px;
+            line-height: 28.13px;
+        }
+        &__text{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        &__container{
+            margin-top: var(--margin-top-60);
+        }
+        &__text-1{
+            margin-top: 35px;
+        }
+    }
+    @include media-breakpoint-up(md){
+        &__container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
+        }
+    }
+    @include media-breakpoint-down(xl){
+        padding-inline: 20px;
+        &__line{
+            margin-top: 20px;
+        }
+        &__text{
+            margin-top: 15px;
+        }
+    }
+    @include media-breakpoint-up(xl){
+        padding-inline: 12.3%;
+
+        &__title{
+            margin-top: var(--margin-top-75);
+            font-size: 80px;
+            line-height: 90px;
+        }
+        &__frame{
+            width: 50vw;
+            height: 32.29vw;
+        }
+        &__subtitle{
+            font-size: 28px;
+            line-height: 32.8px;
+        }
+        &__text{
+            font-size: 22px;
+            line-height: 25.78px;
+            margin-top: 25px;
+        }
+        &__text-1{
+            margin-top: 50px;
+        }
+        &__line{
+            margin-top: 25px;
+        }
+        &__container{
+            margin-top: var(--margin-top-75);
+        }
+    }
+    
+    width: 100%;
+    height: auto;
+    background-color: var(--palette-primary-light);
+
+    &__frame{
+        border: 0;
+    }
+    &__title{
+        font-family: var(--typography-fontFamily-headings);
+        font-weight: var(--typography-fontWeightLight);
+        color: var(--palette-tertiary-text);
+        letter-spacing: 5px;
+    }
+    &__subtitle{
+        font-family: var(--typography-fontFamily-headings);
+        font-weight: var(--typography-fontWeightMedium);
+    }
+    &__text{
+        font-family: var(--typography-fontFamily);
+        font-weight: var(--typography-fontWeightLight);
+    }
+    &__line{
+        height: 3px;
+        background-color: var(--palette-primary-dark);
+    }
+}
