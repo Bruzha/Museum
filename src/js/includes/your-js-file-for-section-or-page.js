@@ -2,3 +2,7 @@
 // class Hero{
 
 // }
+
+// class Welcome{
+
+// }
