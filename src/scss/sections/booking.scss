@@ -162,9 +162,9 @@
             justify-content: space-between;
         }
 
-        &__div-left, &__div-right{
-            height: 663px;
-        }
+        // &__div-left, &__div-right{
+        //     height: 663px;
+        // }
         &__div-left{
             width: 41.24%;
         }
@@ -331,7 +331,7 @@
     &__div-entry{
         border: 1px solid var(--palette-primary-main);
         width: 100%;
-        height: 135px;
+        // height: 135px;
         margin-top: 20px;
         padding: 15px;
     }
@@ -557,5 +557,8 @@
     }
     &__arrow{
         cursor: pointer;
+    }
+    &__title-right{
+        word-break: break-all;
     }
 }
