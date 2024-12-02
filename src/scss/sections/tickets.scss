@@ -160,6 +160,10 @@
             width: 37.50vw;
             height: 28.65vw;
         }
+        &__select-options{
+            width: 75vw;
+            height: 135px;
+        }
         &__line, &__container{
             margin-top: 25px;
             width: 75vw;
@@ -263,6 +267,13 @@
     &__count{
         font-size: 22px;
         line-height: 25.78px;
+        width: 60px;
+        text-align: center;
+    }
+    &__count::-webkit-outer-spin-button,
+    &__count::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
     &__mark{
         font-size: 32px;

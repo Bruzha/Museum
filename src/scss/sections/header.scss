@@ -372,5 +372,62 @@
         width: 100%;
         @extend %flex-center-G;
     }
+    &__arrow{
+        cursor: pointer;
+    }
 
 }
+// .header-modal-checkbox{
+//     cursor: pointer;
+//     overflow: hidden;
+//     z-index: 1;
+//     position: relative;
+//     border-radius: 4px;
+//     width: 175px;
+//     height: 50px;
+//     @extend %flex-center-V;
+//     @extend %flex-center-G; 
+// }
+#header-modal-checkbox{
+    display: none;
+}
+
+// #header-modal-checkbox:checked + .header__nav {
+//     display:block;   
+//     z-index: 4;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     animation: bg 0.5s ease;
+// }
+// /* Модальное окно */
+// #header-modal-checkbox:checked + .header__nav{
+//     transition: 0.5s;
+//     overflow: auto;
+//     animation: scale 0.5s ease;
+//     background-color: var(--palette-primary-light);
+// }
+
+// /* Кнопка с крестиком закрывающая окно */
+// .header__button {
+//     z-index: 10;
+//     cursor: pointer;
+// }
+// /* Анимации */
+// @keyframes scale {
+//     0% {
+//         transform: scale(0);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
+// @keyframes bg {
+//     0% {
+//         background: rgba(51, 122, 183, 0);
+//     }
+//     100% {
+//         background: rgba(3, 3, 3, 0.7);
+//     }
+// }

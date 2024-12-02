@@ -204,8 +204,7 @@
             font-size: 2.30vw;
         }
     }
-
-    border: 1px solid brown;
+    
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
@@ -560,5 +559,31 @@
     }
     &__title-right{
         word-break: break-all;
+    }
+    &__select-options{
+        position: relative;
+        height: 135px;
+        width: 100%;
+        background-color: var(--palette-primary-light);
+        display: none;
+    }
+    &__option{
+        width: 100%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+
+        &:hover{
+            background-color: var(--palette-tertiary-main);
+        }
+    }
+
+    &__card-input-4::-webkit-outer-spin-button, 
+    &__card-input-1::-webkit-outer-spin-button,
+    &__card-input-4::-webkit-inner-spin-button, 
+    &__card-input-1::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
     }
 }

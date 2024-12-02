@@ -24,19 +24,19 @@
             <div class="tickets__subtitle tickets__subtitle-2">Amount</div>
             <div class="tickets__text tickets__text-18">Basic 18+</div>
             <div class="tickets__border">
-                <div class="tickets__mark">-</div>
-                <div class="tickets__count">0</div>
-                <div class="tickets__mark">+</div>
+                <div class="tickets__mark tickets__minus-1">-</div>
+                <input  type="number" min="0" class="tickets__count tickets__count-1" value="0">
+                <div class="tickets__mark tickets__plus-1">+</div>
             </div>
             <div class="tickets__text tickets__text-65">Senior 65+</div>
             <div class="tickets__border">
-                <div class="tickets__mark">-</div>
-                <div class="tickets__count">0</div>
-                <div class="tickets__mark">+</div>
+                <div class="tickets__mark tickets__minus-2">-</div>
+                <input type="number" min="0" class="tickets__count tickets__count-2" value="0">
+                <div class="tickets__mark tickets__plus-2">+</div>
             </div>
             <div class="tickets__subtitle tickets__cost">Total €0</div>
             <div class="tickets__button">
-                <label for="modal-checkbox" class="modal-checkbox">Buy Now</label>
+                <label for="modal-checkbox" class="modal-checkbox tickets__button-buy">Buy Now</label>
             </div>
         </div>
     </div>
@@ -50,17 +50,17 @@
     <label for="modal-checkbox" class="booking__button"></label>
     <div class="booking__container">
         <div class="booking__div-left">
-            <img class="bookimg__logo" src="../../../img/form/logo.png" alt="logo.png">
+            <img class="booking__logo" src="../../../img/form/logo.png" alt="logo.png">
             <div class="booking__title">BOOKING TICKETS</div>
             <div class="booking__subtitle">Tour to Louvre</div>
             <div class="booking__line"></div>
             <div class="booking__container-datetime">
                 <div class="booking__div-border-1 booking__div-date">
-                    <div class="booking__div booking__div-title">Date</div>
+                    <div class="booking__div booking__div-title booking__div-title-date">Date</div>
                     <input class="booking__input booking__input-date" type="date">
                 </div>
                 <div class="booking__div-border-1 booking__div-time">
-                    <div class="booking__div booking__div-title">Time</div>
+                    <div class="booking__div booking__div-title booking__div-title-time">Time</div>
                     <input class="booking__input booking__input-time" type="time">
                 </div>
             </div>
@@ -74,12 +74,13 @@
                 <input class="booking__input booking__input-phone" type="tel" placeholder="Phone">
             </div>
             <div class="booking__div-border-2 booking__div-type">
-                <div class="booking__div booking__div-title">Ticket Type</div>
-                <select class="booking__div booking__select" >
-                    <option class="booking__div booking__option">Permanent exhibition</option>
-                    <option class="booking__div booking__option">Temporary exhibition</option>
-                    <option class="booking__div booking__option">Cjmbined Admission</option>
-                </select>
+                <div class="booking__div booking__div-title booking__div-title-type">Permanent exhibition</div>
+                <div class="booking__div booking__select"></div>
+            </div>
+            <div class="booking__select-options">
+                <div class="booking__div booking__option">Permanent exhibition</div>
+                <div class="booking__div booking__option">Temporary exhibition</div>
+                <div class="booking__div booking__option">Combined Admission</div>
             </div>
             <div class="booking__div-entry">
                 <div class="booking__entry-title">Entry Tickets</div>
@@ -87,17 +88,17 @@
                 <div class="booking__div booking__div-cost">
                     <div class="booking__entry-text">Basic 18+ (20 €)</div>
                     <div class="booking__div-buttons">
-                        <div class="booking__mark">–</div>
-                        <div class="booking__count">0</div>
-                        <div class="booking__mark">+</div>
+                        <div class="booking__mark booking__minus-1">–</div>
+                        <div class="booking__count booking__count-1">0</div>
+                        <div class="booking__mark booking__plus-1">+</div>
                     </div>
                 </div>
                 <div class="booking__div booking__div-cost">
                     <div class="booking__entry-text">Senior 65+ (10 €)</div>
                     <div class="booking__div-buttons">
-                        <div class="booking__mark">–</div>
-                        <div class="booking__count">0</div>
-                        <div class="booking__mark">+</div>
+                        <div class="booking__mark booking__minus-2">–</div>
+                        <div class="booking__count booking__count-2">0</div>
+                        <div class="booking__mark booking__plus-2">+</div>
                     </div>
                 </div>
             </div>
@@ -110,23 +111,23 @@
                     <div class="booking__subtitle-right">Tour to Louvre</div>
                     <div class="booking__text booking__text-date">Day, Month</div>
                     <div class="booking__text booking__text-time">Time</div>
-                    <div class="booking__text booking__text-type">Type</div>
+                    <div class="booking__text booking__text-type">Permanent exhibition</div>
                 </div>
                 <img class="booking__photo" src="../../../img/form/overview-image.jpg" alt="photo.png">
             </div>
             <div class="booking__div-cost-1">
                 <div class="booking__grey-and-text">
-                    <div class="booking__count-grey">0</div>
+                    <div class="booking__count-grey booking__count-grey-1">0</div>
                     <div class="booking__text-cost">Basic (20 €)</div>
                 </div>
-                <div class="booking__cost">0 €</div>
+                <div class="booking__cost booking__cost-basic">0 €</div>
             </div>
             <div class="booking__div-cost-2">
                 <div class="booking__grey-and-text">
-                    <div class="booking__count-grey">0</div>
+                    <div class="booking__count-grey booking__count-grey-2">0</div>
                     <div class="booking__text-cost">Senior (10 €)</div>
                 </div>
-                <div class="booking__cost">0 €</div>
+                <div class="booking__cost booking__cost-senior">0 €</div>
             </div>
             <div class="booking__line-min booking__line-min-2"></div>
             <div class="booking__div-cost-total">
@@ -137,18 +138,18 @@
                 <div class="booking__card-first">
                     <div class="booking__card-first-relative">
                         <div class="booking__card-text">Card number</div>
-                        <input class="booking__card-input-1" type="text">
+                        <input class="booking__card-input-1" type="number">
                         <div class="booking__card-text booking__card-text-2">Expiration date</div>
                         <div class="booking__div-card-datetime">
                             <div class="booking__card-datetime">
-                                <div class="booking__card-input-2">01</div>
+                                <div class="booking__card-input-2 booking__card-month">01</div>
                                 <div class="booking__arrows">
                                     <img class="booking__arrow" src="../../../img/form/arrow-up.png" alt="arrow.png">
                                     <img class="booking__arrow" src="../../../img/form/arrow-down.png" alt="arrow.png">
                                 </div>
                             </div>
                             <div class="booking__card-datetime">
-                                <div class="booking__card-input-2">2024</div>
+                                <div class="booking__card-input-2 booking__card-year">2024</div>
                                 <div class="booking__arrows">
                                     <img class="booking__arrow" src="../../../img/form/arrow-up.png" alt="arrow.png">
                                     <img class="booking__arrow" src="../../../img/form/arrow-down.png" alt="arrow.png">
@@ -165,7 +166,7 @@
                     <div class="booking__card-second-relative">
                         <div class="booking__black-line"></div>
                         <div class="booking__card-text-CVC">CVC/CVV</div>
-                        <input class="booking__card-input-4" type="text">
+                        <input class="booking__card-input-4" type="number">
                         <div class="booking__card-text-min">The last<br>
                             3 or 4 digits<br>
                             on back<br>
