@@ -1,0 +1,6 @@
+<% var data = { title: "Home" } %>
+<%= _.template(require('./../includes/_html-top.html').default)(data) %>
+<main class="main">
+  <%= _.template(require('./../includes/main/profile.html').default)(data) %>
+</main>
+<%= _.template(require('./../includes/_html-bottom.html').default)(data) %>

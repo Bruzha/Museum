@@ -10,6 +10,7 @@
     "post-update": "yarn upgrade --latest"
   },
   "dependencies": {
+    "firebase": "^11.0.2",
     "modern-normalize": "^1.1.0",
     "swiper": "^8.0.7"
   },
@@ -29,10 +30,5 @@
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
-  },
-  "browser": {
-  "fs": false,
-  "path": false,
-  "os": false
-}
+  }
 }

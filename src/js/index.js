@@ -1,6 +1,13 @@
 import Swiper from "swiper";
 // import { heroOptions } from "./includes/your-js-file-for-section-or-page";
-import Classes from './includes/your-js-file-for-section-or-page'
+import class_footer from './includes/footer';
+import class_header from './includes/header';
+import class_welcome from './includes/welcome';
+import class_tickets from './includes/tickets';
+import class_video from './includes/video';
+import class_explore from './includes/explore';
+import class_registation from './includes/registration';
+import class_autorisation from './includes/autorisation';
 if (document.location.pathname === "/" || document.location.pathname === "/index.html") {
   //Hero init your class from your-js-file-for-section-or-pag
   // new YourClass()
@@ -11,11 +18,13 @@ if (document.location.pathname === "/your-page.html") {
   //code
 }
 document.addEventListener('DOMContentLoaded', () => {
-  const welcome = new Classes.Welcome();
-  const header = new Classes.Header();
-  const tickets = new Classes.Tickets();
-  const booking = new Classes.Booking();
-  const video = new Classes.Video();
-  const explore = new Classes.Explore();
-  const registration = new Classes.Registration();
+  const welcome = new class_welcome.Welcome();
+  const header = new class_header.Header();
+  const tickets = new class_tickets.Tickets();
+  const booking = new class_tickets.Booking();
+  const video = new class_video.Video();
+  const explore = new class_explore.Explore();
+  const registration = new class_registation.Registration();
+  const autorisation = new class_autorisation.Autorisation();
+  const footer = new class_footer.Footer();
 });

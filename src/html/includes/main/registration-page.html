@@ -1,26 +1,35 @@
 <div class="margin-registration">
 <section class="registration">
-    <label class="registration__button"></label>
+    <a class="registration__button" href="index.html"></a>
     <img class="registration__logo" src="../../../img/form/logo.png" alt="logo.png">
-    <div class="registration__title">REGISTRATION / AUTORIZATION</div>
+    <div class="registration__title">REGISTRATION</div>
     <div class="registration__line"></div>
     <div class="registration__div registration__div-name">
         <input class="registration__input registration__input-name" type="text" placeholder="Username">
     </div>
+    <div class="registration__div-relative">
+        <div class="registration__message registration__message-name"></div>
+    </div>
     <div class="registration__div registration__div-email">
         <input class="registration__input registration__input-email" type="email" placeholder="E-mail">
     </div>
+    <div class="registration__div-relative">
+        <div class="registration__message registration__message-email"></div>
+    </div>
     <div class="registration__div registration__div-phone">
-        <input class="registration__input registration__input-phone" type="tel" placeholder="Phone">
+        <input class="registration__input registration__input-phone" type="tel" placeholder="Phone" pattern="^[0-9]+$">
+    </div>
+    <div class="registration__div-relative">
+        <div class="registration__message registration__message-phone"></div>
     </div>
     <div class="registration__div registration__div-password">
         <input class="registration__input registration__input-password" type="password" placeholder="Password">
     </div>
-    <div class="registration__div-button registration__div-button-sing-up">
-        <a class="registration__a-button">Sing up</a>
+    <div class="registration__div-relative">
+        <div class="registration__message registration__message-password"></div>
     </div>
-    <div class="registration__div-button registration__div-button-log-in">
-        <a class="registration__a-button">Log in</a>
+    <div class="registration__div-button registration__div-button-sing-up">
+        <a class="registration__a-button registration__a-button-set-up">Sing up</a>
     </div>
 </section>
 </div>

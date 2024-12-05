@@ -1,4 +1,4 @@
-.registration{
+.autorisation{
     @include media-breakpoint-down(sm){
         width: 100%;
         padding-bottom: 50px;
@@ -30,7 +30,7 @@
             font-size: 20px;
             line-height: 23.44px;
         }
-        &__div-name{
+        &__div-email, &__div-button-log-in{
             margin-top: var(--margin-top-40);
         }
     }
@@ -41,7 +41,7 @@
         &__title{
             font-size: 45px;
         }
-        &__div-name{
+        &__div-email, &__div-button-log-in{
             margin-top: var(--margin-top-60);
         }
     }
@@ -65,7 +65,7 @@
         &__title{
             font-size: 50px;
         }
-        &__div-name{
+        &__div-email, &__div-button-log-in{
             margin-top: var(--margin-top-75);
         }
     }
@@ -79,8 +79,27 @@
     input::-moz-placeholder { color: var(--palette-secondary-text); }
     input::-webkit-input-placeholder { color: var(--palette-secondary-text); }
 
-    &__div-button-sing-up{
-        margin-top: 10px;
+
+    &__div-a-autorisation{
+        width: 100%;
+        @extend %flex-center-G;
+        margin-top: 20px;
+    }
+    &__a-autorisation{
+        font-size: 22px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+        font-weight: var(--typography-fontWeightMedium);
+        align-items: center;
+        color: var(--palette-primary-dark);
+        &:hover{
+            color: var(--palette-primary-dark-hover);
+        }
+    }
+    &__div-main-relative{
+        width: 100%;
+        position: relative;
+        height: 22px;
     }
     &__div-relative{
         width: 100%;
@@ -88,8 +107,15 @@
         height: 80px;
         margin-top: 5px;
     }
-    &__div-email, &__div-phone, &__div-password{
+    &__div-password{
         margin-top: 10px;
+    }
+    &__message-main{
+        color: red;
+        font-size: 18px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+        text-align: center;
     }
     &__message{
         color: red;
@@ -98,7 +124,6 @@
         line-height: 21.09px;
         width: 100%;
         //word-break: break-all;
-        position: absolute;
     }
     &__button{
         width: 25px;
@@ -140,12 +165,6 @@
         padding-inline: 15px;
         width: 100%;
     }
-    &__div-name:before{
-        width: 28px;
-        height: 15px;
-        padding-right: 15px;
-        content: url('../../img/form/icon-user.svg');
-    }
     &__div-password:before{
         width: 15px;
         height: 17px;
@@ -164,11 +183,6 @@
         padding-right: 15px;
         margin-top: -10px;
         content: url('../../img/form/icon-email.svg');
-    }
-    &__div-phone:before{
-        width: 29px;
-        height: 23px;padding-right: 15px;
-        content: url('../../img/form/icon-tel.svg');
     }
     &__a-button{
         width: 220px;
@@ -192,11 +206,12 @@
         background-color: rgb(147, 147, 147);
         pointer-events: none;
     }
+
     &__input{
         width: 100%;
     }
 }
-.margin-registration{
+.margin-autorisation{
     width: 100%;
     height: auto;
     @extend %flex-center-V;
