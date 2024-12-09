@@ -160,6 +160,10 @@
             width: 37.50vw;
             height: 28.65vw;
         }
+        &__select-options{
+            width: 75vw;
+            height: 135px;
+        }
         &__line, &__container{
             margin-top: 25px;
             width: 75vw;
@@ -183,11 +187,12 @@
         }
         &__cost{
             margin-top: 50px;
+            margin-left: 50px;
         }
         &__button{
             margin-top: 82px;
         }
-        &__text-18, &__text-65, &__cost{
+        &__text-18, &__text-65{
             margin-left: 23px;
         }
         &__div-radio{
@@ -236,6 +241,7 @@
     }
     &__subtitle{
         font-weight: var(--typography-fontWeightMedium);
+        font-family: var(--typography-fontFamily);
     }
     &__button{
         background-color: var(--palette-primary-main);
@@ -244,10 +250,9 @@
         width: 175px;
         height: 50px;
         letter-spacing: 2px;
-        text-align: center;
-        cursor: pointer;
+        cursor: pointer;       
     }
-    &__subtitle, &__text, &__button, &__border{
+    &__text, &__button, &__border{
         font-family: var(--typography-fontFamily);
         font-weight: var(--typography-fontWeightLight);
     }
@@ -262,10 +267,111 @@
     &__count{
         font-size: 22px;
         line-height: 25.78px;
+        width: 60px;
+        text-align: center;
+    }
+    &__count::-webkit-outer-spin-button,
+    &__count::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
     &__mark{
         font-size: 32px;
         line-height: 37.5px;
         cursor: pointer;
+    }
+}
+.modal-checkbox{
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    border-radius: 4px;
+    width: 175px;
+    height: 50px;
+    @extend %flex-center-V;
+    @extend %flex-center-G; 
+}
+
+// .modal-checkbox:before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: -50px;
+//     bottom: 0;
+//     left: 0;
+//     border-right: 50px solid transparent;
+//     border-top: 50px solid #2D6B9F;
+//     transition: transform 0.5s;
+//     transform: translateX(-100%);
+//     z-index: -1;
+// }
+// .modal-checkbox:hover:before,
+// .modal-checkbox:active:before,
+// .modal-checkbox:focus:before {
+//     transform: translateX(0);
+// }
+
+#modal-checkbox{
+    display: none;
+}
+/* Контейнер, который затемняет страницу */
+#modal-checkbox + .booking-background {
+    display: none;
+}
+#modal-checkbox:checked + .booking-background {
+    display:flex;
+    align-items:center;
+    justify-content:center;    
+    z-index: 4;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: bg 0.5s ease;
+    background: rgba(3, 3, 3, 0.7);
+}
+/* Модальное окно */
+#modal-checkbox:checked + .booking-background .booking{
+    @include media-breakpoint-up(xl){
+        width: 75%;
+    }
+    @include media-breakpoint-between(md, xl){
+        width: 100%
+    };
+    @include media-breakpoint-between(sm, md){
+        width: 76.82%;
+    }
+    @include media-breakpoint-down(sm){
+        width: 100%;
+    }
+    max-height: 70%;
+    transition: 0.5s;
+    overflow: auto;
+    animation: scale 0.5s ease;
+    background-color: var(--palette-primary-light);
+}
+
+/* Кнопка с крестиком закрывающая окно */
+.booking__button {
+    z-index: 10;
+    cursor: pointer;
+}
+/* Анимации */
+@keyframes scale {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes bg {
+    0% {
+        background: rgba(51, 122, 183, 0);
+    }
+    100% {
+        background: rgba(3, 3, 3, 0.7);
     }
 }

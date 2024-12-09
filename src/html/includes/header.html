@@ -3,6 +3,7 @@
         <img class="header__logo" src="../../img/header/logo.svg" alt="logo.png">
         <div class="header__title">LOUVRE</div>
     </div>
+    <input type="checkbox" id="header-modal-checkbox"/>
     <nav class="header__nav">
         <div class="header__nav-relative">
             <div class="header__div-img">
@@ -27,8 +28,8 @@
                         <span class="header__span"></span>
                     </form>
                     <div class="header__arrows">
-                        <img class="header__arrow" src="../../../img/hero/arrow-left.svg" alt="back.png">
-                        <img class="header__arrow" src="../../../img/hero/arrow-right.svg" alt="forward.png">
+                        <img class="header__arrow header__arrow-prev" src="../../../img/hero/arrow-left.svg" alt="back.png">
+                        <img class="header__arrow header__arrow-next" src="../../../img/hero/arrow-right.svg" alt="forward.png">
                     </div>
                 </div>
             </div>
@@ -40,9 +41,13 @@
                     <a class="header__a" href="#gallery">Gallery</a>
                     <a class="header__a" href="#tickets">Tickets</a>
                     <a class="header__a" href="#contacts">Contacts</a>
+                    <a class="header__a header__a-log-in" href="autorisation.html">Log in</a>
                 </form>
             </div>
         </div>
+        <!-- <div class="header__div-login">
+            <a class="header__a-login">Log in</a>
+        </div> -->
         <div class="header__burger">
             <div class="header__images-768">
                 <img class="header__image-768 header__image1-768" src="../../img/burger/gallery-image1-768.webp" alt="photo.png">
@@ -68,5 +73,5 @@
             </div>
         </div>
     </nav>
-    <button class="header__button" type="button"></button>
+    <label for="header-modal-checkbox" class="header__button header-modal-checkbox" type="button"></label>
 </header>

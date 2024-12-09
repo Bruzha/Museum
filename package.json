@@ -10,6 +10,8 @@
     "post-update": "yarn upgrade --latest"
   },
   "dependencies": {
+    "firebase": "^11.0.2",
+    "jwt-decode": "^4.0.0",
     "modern-normalize": "^1.1.0",
     "swiper": "^8.0.7"
   },
@@ -20,6 +22,7 @@
     "css-minimizer-webpack-plugin": "^3.4.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "object-assign": "^4.1.1",
     "prettier": "^2.6.1",
     "raw-loader": "^4.0.2",
     "sass": "^1.49.10",

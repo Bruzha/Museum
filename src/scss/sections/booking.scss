@@ -1,0 +1,589 @@
+.booking{
+    @include media-breakpoint-down(sm){
+        width: 100%;
+        height: 1754px;
+        padding-bottom: 50px;
+        
+        &__div-left{
+            height: 689.79px;
+        }
+        &__div-right{
+            height: 885px;
+        }
+        &__title{
+            font-size: 8vw;
+            line-height: 35.33px;
+        }
+        &__div-border-1{
+            width: 100%;
+        }
+        &__container-datetime{
+            margin-top: 40px;
+        }
+        &__photo{
+            width: 28.57vw;
+        }
+        &__card-first, &__card-second{
+            width: 100%;
+            height: 209px;
+        }
+        &__cards{
+            height: 443px;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+        }
+        &__card-text{
+            font-size: 11px;
+            line-height: 12.89px;
+        }
+        &__card-text-min{
+            font-size: 9px;
+            line-height: 10.55px;
+        }
+        &__card-text-CVC, &__card-input-2{
+            font-size: 13px;
+            line-height: 15.23px;
+        }
+        &__photo{
+            max-width: 120px;
+        }
+        &__div-right{
+            margin-top: 49px;
+        }
+    }
+
+
+    @include media-breakpoint-between(sm, md){
+        width: 76.82%;
+        height: 1479px;
+        padding-bottom: 40px;
+
+        &__div-left{
+            height: 643.26px;
+        }
+        &__div-right{
+            height: 665px;
+        }
+        &__container-datetime{
+            margin-top: 20px;
+        }
+        &__photo{
+            width: 25.42vw;
+        }
+        &__div-right{
+            margin-top: 51px;
+        }
+        &__title{
+            font-size: 6vw;
+        }
+    }
+
+    @include media-breakpoint-up(sm){
+        &__title{
+            line-height: 55.2px;
+        }
+        &__div-border-1{
+            width: 47%;
+        }
+        &__container-datetime{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+        }
+        &__card-first, &__card-second{
+            height: 211px;
+            width: 70.02%;
+            position: absolute;
+        }
+        &__card-first{
+            z-index: 2;
+            left: 0;
+            top: 0;
+        }
+        &__card-second{
+            right: 0;
+            bottom: 0;
+        }
+        &__cards{
+            height: 241px;
+        }
+        &__card-text, &__card-text-CVC, &__card-input-2{
+            font-size: 12px;
+            line-height: 14.06px;
+        }
+        &__card-text-min{
+            font-size: 10px;
+            line-height: 11.72px;
+        }
+        &__photo{
+            max-width: 150px;
+        }
+        
+    }
+
+    @include media-breakpoint-down(md){
+        padding-top: 30px;
+
+        &__div-left, &__div-right{
+            width: 100%;
+        }
+        &__div-right{
+            padding: 10px 15px;
+        }
+        &__a-button{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        // &__container{
+        //     display: flex;
+        //     flex-wrap: wrap;
+        //     align-content: space-between;
+        // }
+    }
+
+    @include media-breakpoint-between(md, xl){
+        width: 100%;
+        height: 768px;
+        padding: 30px 27px;
+
+        &__photo{
+            width: 14.65vw;
+        }
+        &__title{
+            font-size: 4.2vw;
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        &__container{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        // &__div-left, &__div-right{
+        //     height: 663px;
+        // }
+        &__div-left{
+            width: 41.24%;
+        }
+        &__div-right{
+            width: 54.64%;
+        }
+        &__container-datetime{
+            margin-top: 34px;
+        }
+        &__div-right{
+            padding: 10px 30px;
+        }
+        &__a-button{
+            font-size: 22px;
+            line-height: 25.78px;
+        }
+    }
+
+    @include media-breakpoint-down(xl){
+        padding-inline: 30px;
+    }
+
+    @include media-breakpoint-up(xl){
+        width: 75%;
+        height: 845px;
+        padding: 29px 90px;
+        padding-inline: 30px;
+
+        &__container{
+            padding-inline: 14.31%;
+            margin-bottom: 60px;
+        }
+        &__photo{
+            width: 10.42vw;
+        }
+        &__title{
+            font-size: 2.30vw;
+        }
+    }
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+
+    input::-moz-placeholder { color: var(--palette-secondary-text); }
+    input::-webkit-input-placeholder { color: var(--palette-secondary-text); }
+
+    &__div-right{
+        border: 1px solid var(--palette-secondary-text);
+    }
+
+    &__button{
+        width: 25px;
+        height: 25px;
+        background-image: url('../../img/form/Close.png');
+        background-position: center;
+        background-size: 25px 25px;
+        background-color: var(--palette-primary-light);
+        border: none;
+        margin-right: 0;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    &__container{
+        width: 100%;
+    }
+    &__logo{
+        width: 85px;
+        height: 41px;
+    }
+    &__title{
+        font-weight: var(--typography-fontWeightLight);
+        font-family: var(--typography-fontFamily-headings);
+        color: var(--palette-secondary-light);
+    }
+    &__subtitle{
+        color: var(--palette-primary-dark);
+        font: {
+            family: var(--typography-fontFamily);
+            weight: var(--typography-fontWeightLight);
+            size: 18px;
+        }
+        line-height: 21.09px;
+        margin-top: 15px;
+    }
+    &__line{
+        background-color: var(--palette-primary-dark);
+        width: 100%;
+        height: 3px;
+        margin-top: 10px;
+    }
+    &__div{
+        font-size: 18px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+    }
+    &__div-border-1, &__div-border-2{
+        border: 1px solid var(--palette-primary-main);
+        height: 45px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        padding-inline: 15px;
+    }
+    &__div-border-2{
+        width: 100%;
+    }
+    &__div-date:before, &__text-date:before{
+        width: 30px;
+        height: 15px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-date.svg');
+    }
+    &__div-time:before, &__text-time:before{
+        width: 31px;
+        height: 16px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-time.svg');
+    }
+    &__div-name:before{
+        width: 28px;
+        height: 15px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-user.svg');
+    }
+    &__div-email:before{
+        width: 30px;
+        height: 11px;
+        padding-right: 15px;
+        margin-top: -10px;
+        content: url('../../img/form/icon-email.svg');
+    }
+    &__div-phone:before{
+        width: 29px;
+        height: 23px;padding-right: 15px;
+        content: url('../../img/form/icon-tel.svg');
+    }
+    &__div-type:before{
+        width: 30px;
+        height: 15px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-ticket-type.svg');
+    }
+    &__text-type:before{
+        width: 30px;
+        height: 15px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-confirm.svg');
+    }
+    &__input-date, &__input-time, &__select{
+        width: 17px;
+        height: 17px;
+        background-image: url('../../img/form/droplist-arrow.svg');
+        background-position: center;
+        background-size: 17px 17px;
+        margin-right: 0;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    &__select{
+        border: none;
+    }
+    &__div-entry{
+        border: 1px solid var(--palette-primary-main);
+        width: 100%;
+        // height: 135px;
+        margin-top: 20px;
+        padding: 15px;
+    }
+    &__entry-title{
+        font: {
+            family: var(--typography-fontFamily-headings);
+            size: 18px;
+            weight: var(--typography-fontWeightLight);
+        }
+        line-height: 19.87px;
+        color: var(--palette-tertiary-text);
+    }
+    &__line-min{
+        width: 100%;
+        height: 2px;
+        background-color: var(--palette-primary-dark);
+        margin-top: 5px;
+    }
+    &__div-cost, &__div-buttons, &__div-cost-1, &__div-cost-2, &__div-cost-total{
+        @extend %flex-spase-between-G;
+    }
+    &__div-cost{
+        margin-top: 15px;
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+    }
+    &__div-buttons{
+        width: 105px;
+        height: 25px;
+        border: 1px solid var(--palette-primary-main);
+    }
+    &__mark{
+        background-color: var(--palette-primary-main);
+        color: var(--palette-primary-text);
+        cursor: pointer;
+    }
+    &__count, &__mark{
+        width: 35px;
+        height: 100%;
+        @extend %flex-center-G;
+        @extend %flex-center-V;
+    }
+    &__title-right, &__total, &__all-cost{
+        font: {
+            family: var(--typography-fontFamily);
+            weight: var(--typography-fontWeightMedium);
+            size: 32px;
+        }
+        line-height: 37.5px;
+        color: var(--palette-secondary-text);
+    }
+    &__subtitle-right{
+        font: {
+            family: var(--typography-fontFamily);
+            weight: var(--typography-fontWeightMedium);
+            size: 22px;
+        }
+        line-height: 25.78px;
+        color: var(--palette-primary-dark);
+    }
+    &__photo{
+        height: auto;
+    }
+    &__text-date{
+        margin-top: 10px;
+    }
+    &__text-time, &__text-type{
+        margin-top: 5px;
+    }
+    &__count-grey{
+        width: 32px;
+        height: 20px;
+        background-color: var(--palette-primary-main);
+        color: var(--palette-tertiary-dark);
+        border-radius: 6px;
+        @extend %flex-center-G;
+        @extend %flex-center-V;
+    }
+    &__grey-and-text{
+        @extend %flex-row;
+        @extend %flex-center-V;
+    }
+    &__text-cost{
+        margin-left: 10px;
+
+    }
+    &__div-cost-1, &__div-cost-2, &__div-cost-total{
+        gap: 20px;
+    }
+    &__div-cost-1{
+        margin-top: 22px;
+    }
+    &__div-cost-2{
+        margin-top: 5px;
+    }
+    &__text-cost, &__cost{
+        font: {
+            family: var(--typography-fontFamily);
+            weight: var(--typography-fontWeightLight);
+            size: 22px;
+        }
+        line-height: 25.78px;
+        color: var(--palette-secondary-text);
+    }
+    &__line-min-2{
+        margin-top: 9px;
+    }
+    &__div-cost-total{
+        margin-top: 10px;
+    }
+    &__card-first{
+        background-color: var(--palette-tertiary-light);
+        padding: 15px 20px;
+    }
+    &__card-second{
+        background-color: var(--palette-tertiary-dark);
+    }
+    &__card-second, &__card-first{
+        border-radius: 3px;
+    }
+    &__cards{
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+    }
+    &__photo{
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    &__card-text, &__card-text-min, &__card-text-CVC{
+        font-family: var(--typography-fontFamily);
+        font-weight: var(--typography-fontWeightLight);
+    }
+    &__card-input-1, &__card-input-2, &__card-input-3, &__card-input-4, &__arrows{
+        height: 35px;
+        border: 0.5px solid var(--palette-tertiary-dark);
+        background-color: var(--palette-primary-light);
+        @extend %flex-center-V;
+        margin-top: 5px;
+    }
+    &__card-input-1, &__card-input-2, &__card-input-3, &__card-input-4{
+        padding-left: 10px;
+    }
+    &__card-input-3{
+        width: 96%;
+    }
+    &__card-input-1, &__div-card-datetime{
+        width: 59.72%;
+    }
+    &__card-input-2{
+        width: 72%;
+    }
+    &__card-input-4, &__card-text-CVC, &__card-text-min{
+        width: 20.83%;
+        position: absolute;
+        right: 20px;
+    }
+    &__div-card-datetime, &__card-datetime{
+        @extend %flex-spase-between-G;
+    }
+    &__card-datetime{
+        width: 46.51%;
+    }
+    &__arrows{
+        border-left: none;
+        width: 28%;
+        @extend %flex-center-G;
+        flex-direction: column;
+        gap: 3px;
+    }
+    &__card-first-relative, &__card-second-relative{
+        position: relative;
+    }
+    &__icon-visa, &__icon-mastercard{
+        position: absolute;
+        right: 0;
+    }
+    &__icon-mastercard{
+        top: 51px;
+    }
+    &__icon-visa{
+        top: 18px;
+    }
+    &__card-text-2{
+        margin-top: 10px;
+    }
+    &__black-line{
+        position: absolute;
+        width: 100%;
+        height: 45px;
+        background-color: var(--palette-primary-main);
+        top: 25px;
+    }
+    &__card-text-CVC{
+        top: 85px;
+        @extend %flex-center-G;
+    }
+    &__card-input-4{
+        top: 100px;
+    }
+    &__card-text-min{
+        top: 146px;
+        @extend %flex-center-G;
+    }
+    &__div-button{
+        width: 220px;
+        height: 45px;
+        background-color: var(--palette-primary-dark);
+        @extend %flex-center-G;
+        @extend %flex-center-V;
+        margin-top: 26px;
+        margin-right: 0;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    &__a-button{
+        color: var(--palette-primary-text);
+        font-family: var(--typography-fontFamily);
+        font-weight: var(--typography-fontWeightLight);
+    }
+    &__arrow{
+        cursor: pointer;
+    }
+    &__title-right{
+        word-break: break-all;
+    }
+    &__select-options{
+        position: relative;
+        height: 135px;
+        width: 100%;
+        background-color: var(--palette-primary-light);
+        display: none;
+    }
+    &__option{
+        width: 100%;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        padding-left: 15px;
+
+        &:hover{
+            background-color: var(--palette-tertiary-main);
+        }
+    }
+
+    &__card-input-4::-webkit-outer-spin-button, 
+    &__card-input-1::-webkit-outer-spin-button,
+    &__card-input-4::-webkit-inner-spin-button, 
+    &__card-input-1::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}

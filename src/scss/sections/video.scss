@@ -10,7 +10,7 @@
         &__main-frame{
             height: 53.81vw;
         }
-        &__frame{
+        &__frame, &__overlay{
             width: 42.86vw;
             height: 24.05vw;
             margin-top: var(--margin-top-40);
@@ -27,7 +27,7 @@
             width: 8px;
             height: 8px;
         }
-        &__frame-2{
+        &__frame-2, &__overlay-2{
             margin-left: 20px;
         }
         &__container{
@@ -58,7 +58,7 @@
         &__main-frame{
             height: 50.26vw;
         }
-        &__frame{
+        &__frame, &__overlay{
             width: 46.09vw;
             height: 25.91vw;
             margin-top: 20px;
@@ -75,11 +75,14 @@
 
     @include media-breakpoint-down(md){
         margin-top: var(--margin-top-40);
-        &__frame-3{
+        &__frame-3, &__overlay-3{
             display: none;
         }
         &__main-frame, &__form{
             margin-top: 20px;
+        }
+        &__overlay-2{
+            right: 0;
         }
     }
 
@@ -95,14 +98,14 @@
             height: 49.22vw;
             margin-top: var(--margin-top-40);
         }
-        &__frame{
+        &__frame, &__overlay{
             width: 29.30vw;
             height: 16.60vw;
         }
     }
 
     @include media-breakpoint-up(md){
-        &__frame, &__form{
+        &__frame, &__form, &__overlay{
             margin-top: var(--margin-top-40);
         }
         &__span{
@@ -111,6 +114,9 @@
         }
         &__form{
             width: 200px;
+        }
+        &__overlay-2{
+            right: 34.5%;
         }
     }
 
@@ -142,7 +148,7 @@
             height: 38.28vw;
             margin-top: var(--margin-top-75);
         }
-        &__frame{
+        &__frame, &__overlay{
             width: 23.54vw;
             height: 13.23vw;
         }
@@ -163,6 +169,7 @@
     &__container{
         @extend %flex-spase-between-G;
         width: 100%;
+        position: relative;
     }
     &__counter{
         @extend %flex-center-G;
@@ -180,5 +187,22 @@
     }
     &__arrow{
         cursor: pointer;
+    }
+    &__span-1{
+        background-color: var(--palette-primary-main);
+    }
+    &__frame{
+        pointer-events: none;
+        position: relative;
+    }
+    &__overlay{
+        position: absolute;
+        top:0;
+    }
+    &__overlay-1{
+        left: 0;
+    }
+    &__overlay-3{
+        right: 0;
     }
 }

@@ -15,6 +15,7 @@
 
 // //Sections
 @import "sections/header.scss";
+@import "sections/header-profile.scss";
 @import "sections/welcome.scss";
 // @import "sections/header/profile-dropdown.scss";
 // //Main page
@@ -25,7 +26,7 @@
 @import "sections/video.scss";
 @import "sections/gallery.scss";
 @import "sections/tickets.scss";
-// @import "sections/main/tickets/form";
+@import "sections/booking.scss";
 // @import "sections/main/tickets/form---overview";
 @import "sections/parallax.scss";
 @import "sections/contacts";
@@ -34,6 +35,10 @@
 // //Admin page
 // @import "sections/admin";
 @import "sections/footer";
+@import "sections/profile.scss";
+@import "sections/registration-page.scss";
+@import "sections/autorisation-page.scss";
+@import "sections/forgot-password.scss";
 // //Login page
 // @import "sections/login";
 // //Register page
