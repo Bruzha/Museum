@@ -2,6 +2,7 @@ import { push, ref, set, get } from "firebase/database";
 import { db } from "../../lib/firebase";
 import { auth } from '../../lib/firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import AuthCookies from './authcookies.js';
 
 class Registration{
     constructor(){
@@ -54,37 +55,13 @@ class Registration{
     onInputTelKeyup(){
         this.tel.value = this.tel.value.replace(/[^\d]/g, "");
     }
-    saveUser(user) {
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        users.push(user);
-        localStorage.setItem('users', JSON.stringify(users));
-    }
-
-    // Функция для проверки пользователя в localStorage
-    ////***/
-    // checkUsername(username) {
-    //     const users = JSON.parse(localStorage.getItem('users')) || [];
-    //     return users.find(user => user.username === username);
-    // }
-    // checkEmail(email) {
-    //     const users = JSON.parse(localStorage.getItem('users')) || [];
-    //     return users.find(user => user.email === email);
-    // }
-    // checkPhone(phone) {
-    //     const users = JSON.parse(localStorage.getItem('users')) || [];
-    //     return users.find(user => user.phone === phone);
-    // }
-    // checkPassword(password) {
-    //     const users = JSON.parse(localStorage.getItem('users')) || [];
-    //     return users.find(user => user.password === password);
-    // }
 
     async checkExistingUserData(username, email, phone) {
         const usersRef = ref(db, 'users/');
         const snapshot = await get(usersRef);
     
         if (!snapshot.exists()) {
-             return {}; // Не существует пользователей
+             return {};
         }
     
         const existingUsers = snapshot.val();
@@ -93,8 +70,6 @@ class Registration{
             emailExists: false,
             phoneExists: false
         };
-    
-        // Перебор объектов пользователей
         for (const key in existingUsers) {
             if (existingUsers[key].username === username) {
                 existingData.usernameExists = true;
@@ -106,7 +81,6 @@ class Registration{
                 existingData.phoneExists = true;
             }
         }
-    
         return existingData;
     }
     async setupClick(){
@@ -130,16 +104,10 @@ class Registration{
                 flag = false;
             }
             if(flag){
-                // const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-                // const uid = userCredential.user.uid;
                 const auth = getAuth();
-                createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Signed up 
-                    const user = userCredential.user;
-                    // ...
-                })
-                // Запись данных о пользователе в базу данных
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+                AuthCookies.setCookie('token', userCredential._tokenResponse.idToken);
+                AuthCookies.setCookie('refreshToken', userCredential._tokenResponse.refreshToken);
                 const newUserRef = ref(db, 'users/' + username); 
                 set(newUserRef, {
                     username: username,
@@ -147,8 +115,9 @@ class Registration{
                     phone: phone,
                     password: password
                 })
-                //sessionStorage.setItem('footer_username', this.name.value);
-                //document.querySelector('.registration__a-button-set-up').href="index.html";
+                delete sessionStorage.profile_email;
+                sessionStorage.setItem('profile_email', email);
+                location.href = "index.html";
             }
     }
     onInputPassword(){
@@ -164,7 +133,7 @@ class Registration{
                 }
                 else{
                     this.message_password.textContent += "The password must contain at least one capital letter.";
-                }
+                } 
             }
             if(!/\d/.test(this.password.value)){
                 document.querySelector('.registration__div-password').style.borderColor = 'red';
@@ -232,7 +201,7 @@ class Registration{
             }
         }
         else{
-            document.querySelector('.registration__div-name').style.borderColor = 'red';
+            document.querySelector('.registration__div-phone').style.borderColor = 'red';
             this.message_phone.textContent = "Phone is not filled in.";
         }
         this.createClick();

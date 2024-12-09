@@ -1,3 +1,4 @@
+import AuthCookies from './authcookies.js';
 class Header{
     constructor(){
         this.i_img = 0;
@@ -21,6 +22,15 @@ class Header{
         this.init();
     }
     init(){
+        if(this.header_a !== null) {
+            if (AuthCookies.checkAuthentication()) {
+                this.header_a.innerHTML = 'Profile';
+                this.header_a.href = 'profile-user.html'; // ссылка на профиль пользователя
+            } else {
+                this.header_a.innerHTML = 'Log in';
+                this.header_a.href = 'autorisation.html'; // ссылка на страницу входа
+            }
+        }
         if(this.prevArrow !== null) {
             this.prevArrow.onclick = () => this.prev();
         }

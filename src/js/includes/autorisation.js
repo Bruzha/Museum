@@ -2,6 +2,8 @@ import { push, ref, set, get } from "firebase/database";
 import { db } from "../../lib/firebase";
 import { auth } from '../../lib/firebase';
 import { signInWithEmailAndPassword } from "firebase/auth";
+import AuthCookies from './authcookies.js';
+
 class Autorisation{
     constructor(){
         this.email = document.querySelector('.autorisation__input-email');
@@ -39,82 +41,21 @@ class Autorisation{
             this.login.style.cursor = 'auto';
         }
     }
-    
-    async checkExistingUserData(email, password) {
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-
-            //для поиска username
-            const usersRef = ref(db, 'users/');
-            const snapshot = await get(usersRef);
-            if (!snapshot.exists()) {
-                return {};
-            }
-            const existingUsers = snapshot.val();
-            let foundUser = null;
-            for (const key in existingUsers) {
-                const user = existingUsers[key];
-                if (user.email === email) {
-                    if (user.password === password) {
-                        foundUser = user;
-                        break;
-                    }
-                }
-            }
-        
-            return {
-                emailExists: true,
-                passwordExists: true,
-                username: foundUser.username || 'Пользователь',
-            };
-        } catch (error) {
-            if (error.code === 'auth/user-not-found') {
-                return { emailExists: false, passwordExists: false };
-            } 
-            else if (error.code === 'auth/wrong-password') {
-                return { emailExists: true, passwordExists: false };
-            } 
-            else {
-                console.error("Authentication Error:", error);
-                return { emailExists: false, passwordExists: false };
-            }
-        }
-
-    }
 
     async loginClick(){
         const password = document.querySelector('.autorisation__input-password').value;
         const email = document.querySelector('.autorisation__input-email').value;
-
-        const existingData = await this.checkExistingUserData(email, password);
-        
-        if (existingData.emailExists && existingData.passwordExists) {
-            alert("Welcome " + existingData.username + "!")
-            //sessionStorage.setItem('footer_username', existingData.username);
-            //document.querySelector('.autorisation__a-button-log-in').href = "index.html";
-        } else {
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            AuthCookies.setCookie('token', userCredential._tokenResponse.idToken);
+            AuthCookies.setCookie('refreshToken', userCredential._tokenResponse.refreshToken);
+            delete sessionStorage.profile_email;
+            sessionStorage.setItem('profile_email', email);
+            location.href = "index.html";
+        } catch (error) {
             const messageElement = document.querySelector('.autorisation__message-main');
-            if (!existingData.emailExists || !existingData.passwordExists) {
-                messageElement.textContent = "This user is not registered. Invalid email or password.";
-            }
+            messageElement.textContent = "This user is not registered. Invalid email or password.";
         }
-    
-            // const password = document.querySelector('.autorisation__input-password').value;
-            // const email = document.querySelector('.autorisation__input-email').value;
-
-            // //const user = this.checkUser(email, password); 
-            // //const res_username = this.findUsername(email, password);
-            // const existingData = await this.checkExistingUserData(email, password);
-            // if(existingData.emailExists && existingData.passwordExists){      
-            //     // if(res_username.exists){
-            //     sessionStorage.setItem('footer_username', existingData.username);
-            //     // }
-            //     document.querySelector('.autorisation__a-button-log-in').href="index.html";
-            //     }
-            // else{
-            //     document.querySelector('.autorisation__message-main').textContent = "Such a user has not been registered yet.";
-            // }
     }
     
     onInputPassword(){
@@ -226,10 +167,6 @@ class Autorisation{
         }
         this.createClick();
     }
-    // isPhoneValid(value){
-    //     const belarusPhonePattern = /^375[- ]?\(?((29)|(33))\)?[- ]?[0-9]{3}[- ]?[0-9]{2}[- ]?[0-9]{2}$/;
-    //     return belarusPhonePattern.test(value);
-    // }
     isEmailValid(value) {
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
         return EMAIL_REGEXP.test(value);

@@ -1,4 +1,195 @@
 .profile{
+    @include media-breakpoint-down(sm){
+        &__title{
+            font-size: 28px;
+            line-height: 40px;
+        }
+    }
+
+
+    @include media-breakpoint-between(sm, md){
+        &__title{
+            font-size: 40px;
+            line-height: 60px;
+        }
+    }
+
+    @include media-breakpoint-down(md){
+        &__a-button{
+            font-size: 20px;
+            line-height: 23.44px;
+        }
+        &__div-button-sing-up, &__title{
+            margin-top: var(--margin-top-40);
+        }
+    }
+
+    @include media-breakpoint-between(md, xl){
+        &__div-button-sing-up, &__title{
+            margin-top: var(--margin-top-60);
+        }
+        &__title{
+            font-size: 50px;
+            line-height: 75px;
+        }
+    }
+
+    @include media-breakpoint-up(md){
+        &__a-button{
+            font-size: 22px;
+            line-height: 25.78px;
+        }
+    }
+    @include media-breakpoint-down(xl){
+        padding-inline: 20px;
+    }
+    @include media-breakpoint-up(xl){
+        padding-inline: 12.3%;
+        &__div-button-sing-up, &__title{
+            margin-top: var(--margin-top-75);
+        }
+        &__title{
+            font-size: 80px;
+            line-height: 90px;
+        }
+    }
+
+    //border: 1px solid var(--palette-primary-dark);
+    display: flex;
+    flex-direction: column;
+    height: auto;
     width: 100%;
-    height: 100%;
+    background-color: var(--palette-primary-light);
+    input::-moz-placeholder { color: var(--palette-secondary-text); }
+    input::-webkit-input-placeholder { color: var(--palette-secondary-text); }
+
+    &__div-title{
+        @extend %flex-row;
+    }
+    &__div-a-autorisation{
+        width: 100%;
+        @extend %flex-center-G;
+        margin-top: 20px;
+    }
+    &__a-autorisation{
+        font-size: 22px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+        font-weight: var(--typography-fontWeightMedium);
+        align-items: center;
+        color: var(--palette-primary-dark);
+        &:hover{
+            color: var(--palette-primary-dark-hover);
+        }
+    }
+    &__div-relative{
+        width: 100%;
+        position: relative;
+        height: 80px;
+        margin-top: 5px;
+    }
+    &__title-input-username{
+        margin-top: 80px;
+    }
+    &__div{
+        margin-top: 10px;
+    }
+    &__message{
+        color: red;
+        font-size: 18px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+        width: 100%;
+        //word-break: break-all;
+        position: absolute;
+    }
+    &__title{
+        font-family: var(--typography-fontFamily-headings);
+        letter-spacing: 5px;
+        color: var(--palette-secondary-light)
+    }
+    &__line{
+        background-color: var(--palette-primary-dark);
+        width: 100%;
+        height: 3px;
+        margin-top: 10px;
+    }
+    &__title-input{
+        font-size: 22px;
+        font-family: var(--typography-fontFamily);
+        line-height: 23.09px;
+        font-weight: var(--typography-fontWeightMedium);
+        color: var(--palette-primary-dark);
+    }
+    &__div{
+        font-size: 18px;
+        font-family: var(--typography-fontFamily);
+        line-height: 21.09px;
+        border: 1px solid var(--palette-primary-main);
+        height: 45px;
+        display: flex;
+        align-items: center;
+        padding-inline: 15px;
+        width: 100%;
+    }
+    &__div-name:before{
+        width: 28px;
+        height: 15px;
+        padding-right: 15px;
+        content: url('../../img/form/icon-user.svg');
+    }
+    &__div-password:before{
+        width: 15px;
+        height: 17px;
+        content:"";
+        background-image: url('../../img/admin/password.png');
+        background-size: 15px 17px;
+        background-position: center;
+        
+    }
+    &__input-password{
+        margin-left: 15px;
+    }
+    &__div-email:before{
+        width: 30px;
+        height: 11px;
+        padding-right: 15px;
+        margin-top: -10px;
+        content: url('../../img/form/icon-email.svg');
+    }
+    &__div-phone:before{
+        width: 29px;
+        height: 23px;padding-right: 15px;
+        content: url('../../img/form/icon-tel.svg');
+    }
+    &__a-button{
+        width: 220px;
+        height: 45px;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--palette-primary-dark);
+        display: none;
+    }
+    &__div-button{
+        width: 220px;
+        height: 45px;
+        @extend %flex-center-G;
+        @extend %flex-center-V;
+        margin-right: 0;
+        margin-left: auto;
+    }
+    &__a-button{
+        color: var(--palette-primary-text);
+        font-family: var(--typography-fontFamily);
+        font-weight: var(--typography-fontWeightLight);
+        pointer-events: none;
+    }
+    &__input{
+        width: 100%;
+    }
+    &__div-a{
+        @extend %flex-spase-between-G;
+        gap: 20px;
+        width: auto;
+    }
 }

@@ -25,9 +25,6 @@
         }
     }
 
-    @include media-breakpoint-up(sm){
-    }
-
     @include media-breakpoint-between(sm, xl){
         &__name{
             letter-spacing: 3px;
