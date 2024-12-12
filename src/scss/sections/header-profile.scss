@@ -174,10 +174,14 @@
     letter-spacing: 5px;
     font-weight: var(--typography-fontWeightLight);
 
+    &__logo{
+        cursor: pointer;
+    }
     &__title{
         font-family: var(--typography-fontFamily-headings);
         color: var(--palette-primary-text);
         margin-left: 25px;
+        cursor: pointer;
     }
     &__form-a{
         @extend %flex-spase-between-G;

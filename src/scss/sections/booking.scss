@@ -4,6 +4,9 @@
         height: 1754px;
         padding-bottom: 50px;
         
+        &__message-date{
+            display: block;
+        }
         &__div-left{
             height: 689.79px;
         }
@@ -48,9 +51,6 @@
         &__photo{
             max-width: 120px;
         }
-        &__div-right{
-            margin-top: 49px;
-        }
     }
 
 
@@ -71,15 +71,15 @@
         &__photo{
             width: 25.42vw;
         }
-        &__div-right{
-            margin-top: 51px;
-        }
         &__title{
             font-size: 6vw;
         }
     }
 
     @include media-breakpoint-up(sm){
+        &__message-date{
+            display: none;
+        }
         &__title{
             line-height: 55.2px;
         }
@@ -135,6 +135,9 @@
         &__a-button{
             font-size: 20px;
             line-height: 23.44px;
+        }
+        &__div-right{
+            margin-top: 310px;
         }
         // &__container{
         //     display: flex;
@@ -212,6 +215,14 @@
     input::-moz-placeholder { color: var(--palette-secondary-text); }
     input::-webkit-input-placeholder { color: var(--palette-secondary-text); }
 
+    &__message{
+        font-family: var(--typography-fontFamily);
+        color: red;
+        height: 12px;
+        line-height: 14.06px;
+        height: 28.12px;
+        margin-top: 5px;
+    }
     &__div-right{
         border: 1px solid var(--palette-secondary-text);
     }
@@ -541,13 +552,12 @@
     &__div-button{
         width: 220px;
         height: 45px;
-        background-color: var(--palette-primary-dark);
+        background-color: var(--palette-tertiary-dark);
         @extend %flex-center-G;
         @extend %flex-center-V;
         margin-top: 26px;
         margin-right: 0;
         margin-left: auto;
-        cursor: pointer;
     }
     &__a-button{
         color: var(--palette-primary-text);
@@ -565,15 +575,15 @@
         height: 135px;
         width: 100%;
         background-color: var(--palette-primary-light);
-        display: none;
+        // display: none;
     }
     &__option{
         width: 100%;
         height: 45px;
-        display: flex;
+        cursor: pointer;
         align-items: center;
         padding-left: 15px;
-
+        display: none;
         &:hover{
             background-color: var(--palette-tertiary-main);
         }

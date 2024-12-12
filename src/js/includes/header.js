@@ -12,12 +12,6 @@ class Header{
         this.first_img = document.querySelector('.header__img');
         this.counter = document.querySelector('.header__counter-1');
         this.items = document.querySelectorAll('.header__span');
-        this.prevArrow = document.querySelector('.header__arrow-prev');
-        this.nextArrow = document.querySelector('.header__arrow-next');
-
-        this.header_button = document.querySelector('.header__button');
-        this.nav = document.querySelector('.header__nav');
-
         this.header_a = document.querySelector('.header__a-log-in');
         this.init();
     }
@@ -25,43 +19,28 @@ class Header{
         if(this.header_a !== null) {
             if (AuthCookies.checkAuthentication()) {
                 this.header_a.innerHTML = 'Profile';
-                this.header_a.href = 'profile-user.html'; // ссылка на профиль пользователя
+                this.header_a.href = 'profile-user.html';
             } else {
                 this.header_a.innerHTML = 'Log in';
-                this.header_a.href = 'autorisation.html'; // ссылка на страницу входа
+                this.header_a.href = 'autorisation.html';
             }
         }
-        if(this.prevArrow !== null) {
-            this.prevArrow.onclick = () => this.prev();
+        if(document.querySelector('.header__arrow-prev') !== null) {
+            document.querySelector('.header__arrow-prev').onclick = () => this.changeImg('-');
         }
-        if(this.nextArrow !== null) {
-            this.nextArrow.onclick = () => this.next();
-        }
-        // if(this.header_a !== null) {
-        //     this.header_a.onclick = () => this.Profile();
-        //     if(sessionStorage.getItem('profile') === 'true'){
-        //         this.header_a.innerHTML = "Profile";
-        //         this.header_a.href = "profile-user.html";
-        //     }
-        // }
-    }
-    // Profile(){
-    //     sessionStorage.setItem('profile', 'true');
-    // }
-    prev() {
-        this.i_img--;
-        if (this.i_img < 0) this.i_img = 4;
-        this.first_img.src = this.mas_img[this.i_img];
-        this.counter.textContent = '0' + (this.i_img + 1).toString();
-        for (let i = 0; i < 5; i++) {
-            if (i === this.i_img) this.items[i].style = 'background-color: var(--palette-secondary-light);';
-            else this.items[i].style = 'background-color: var(--palette-primary-light);';
+        if(document.querySelector('.header__arrow-next') !== null) {
+            document.querySelector('.header__arrow-next').onclick = () => this.changeImg('+');
         }
     }
-
-    next() {
-        this.i_img++;
-        if (this.i_img > 4) this.i_img = 0;
+    changeImg(mark) {
+        if(mark === '-'){
+            this.i_img--;
+            if (this.i_img < 0) this.i_img = 4;
+        }
+        else{
+            this.i_img++;
+            if (this.i_img > 4) this.i_img = 0;
+        }
         this.first_img.src = this.mas_img[this.i_img];
         this.counter.textContent = '0' + (this.i_img + 1).toString();
         for (let i = 0; i < 5; i++) {
