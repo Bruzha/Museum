@@ -1,9 +1,7 @@
-import { push, ref, set, get, getDatabase, child, update, remove} from "firebase/database";
+import { ref, set, get, remove} from "firebase/database";
 import { db } from "../../lib/firebase";
-import { auth } from '../../lib/firebase';
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, getIdToken, getUserById} from "firebase/auth";
 import AuthCookies from './authcookies.js';
+import Input from './input.js';
 
 class Profile{
     constructor(){
@@ -11,26 +9,19 @@ class Profile{
         this.email = document.querySelector('.profile__input-email');
         this.tel = document.querySelector('.profile__input-phone');
         this.save = document.querySelector('.profile__a-button-set-up');
-
-        this.message_name = document.querySelector('.profile__message-name');
-        this.message_email = document.querySelector('.profile__message-email');
         this.message_phone = document.querySelector('.profile__message-phone');
-        this.users = [];
         this.old_username = "";
         this.old_tel = "";
-
-        this.load_out = document.querySelector('.header-profile__a-log-out');
         this.unit();
     }
     unit(){
         if(this.name !== null) {
             if (AuthCookies.checkAuthentication()) {
-                this.getUserData();
+                this.loadProfile();
             } 
         }
         if(this.tel !== null) {
             this.tel.oninput = () => this.onInputTel();
-            this.tel.onkeyup = () => this.onInputTelKeyup();
         }
         if(this.name !== null) {
             this.name.oninput = () => this.onInputName();
@@ -38,47 +29,56 @@ class Profile{
         if(this.save !== null) {
             this.save.onclick = () => this.onClickSave();
         }
-        if(this.load_out !== null){
-            this.load_out.onclick = () => this.onClickLoadOut();
+        if(document.querySelector('.header-profile__a-log-out') !== null){
+            document.querySelector('.header-profile__a-log-out').onclick = () => this.onClickLoadOut();
         }
+        if(document.querySelector('.header-profile__logo') !== null && document.querySelector('.header-profile__title') !== null){
+            document.querySelector('.header-profile__logo').onclick = () => this.onClickLogoOrTitle();
+            document.querySelector('.header-profile__title').onclick = () => this.onClickLogoOrTitle();
+        }
+    }
+    onClickLogoOrTitle(){
+        location.href = "index.html";
     }
     onClickLoadOut(){
         AuthCookies.setCookie('token', '', -1);
         AuthCookies.setCookie('refreshToken', '', -1);
-        location.href = "index.html";
+        this.onClickLogoOrTitle();
     }
-    async EmailSearch(email) {
-        const usersRef = ref(db, 'users/');
-        const snapshot = await get(usersRef);
-          
-        if (!snapshot.exists()) {
-             return {};
+    async loadProfile() {
+        const token = AuthCookies.getCookie('token');
+        if (!token) {
+            console.error('The user is not authenticated. Please login.');
+            return;
         }
-    
-        const existingUsers = snapshot.val();
-        const existingData = {
-            emailExists: false,
-            phoneExist: null,
-            usernameExist: null,
-        };
-        for (const key in existingUsers) {
-            if (existingUsers[key].email === email) {
-                existingData.emailExists = true;
-                existingData.phoneExist = existingUsers[key].phone;
-                existingData.usernameExist = existingUsers[key].username;
+
+        try {
+            const response = await fetch(`https://museum-4007c-default-rtdb.firebaseio.com/users.json`);
+            const users = await response.json();
+            const currentUserEmail = this.getCurrentUserEmail(token);
+            const currentUser = Object.values(users).find(user => user.email === currentUserEmail);
+            if (currentUser) {
+                this.displayUserProfile(currentUser);
+            } else {
+                console.error('The user is not found.');
             }
+        } catch (error) {
+            console.error('Error loading profile:', error);
         }
-        return existingData;
     }
-    async getUserData() {
-        const email = sessionStorage.getItem('profile_email');
-        console.log(email);
-        const existingData = await this.EmailSearch(email);
-        this.name.value = existingData.usernameExist;
-        this.tel.value = existingData.phoneExist;
-        this.email.value = email;
-        this.old_username = existingData.usernameExist;
-        this.old_tel = existingData.phoneExist;
+
+    getCurrentUserEmail(token) {
+        const decoded = atob(token.split('.')[1]);
+        const { email } = JSON.parse(decoded);
+        return email;
+    }
+
+    displayUserProfile(user) {
+        document.querySelector('.profile__input-name').value = user.username;
+        document.querySelector('.profile__input-email').value = user.email;
+        document.querySelector('.profile__input-phone').value = user.phone;
+        this.old_username = user.username;
+        this.old_tel = user.phone;
     }
     createClick(){
         if(document.querySelector('.profile__div-name').style.borderColor !== 'red' && document.querySelector('.profile__div-phone').style.borderColor !== 'red' && this.name.value !== "" && this.tel.value !== "")
@@ -88,23 +88,16 @@ class Profile{
             this.save.style.cursor = 'pointer';
         }
         else{
-            this.save.style.display = 'none';
-            this.save.style.pointerEvents = 'none';
-            this.save.style.cursor = 'auto';
+            this.buttonNone();
         }
-    }
-    onInputTelKeyup(){
-        this.tel.value = this.tel.value.replace(/[^\d]/g, "");
     }
 
     async checkExistingUserData(username, phone) {
         const usersRef = ref(db, 'users/');
         const snapshot = await get(usersRef);
-    
         if (!snapshot.exists()) {
              return {};
         }
-    
         const existingUsers = snapshot.val();
         const existingData = {
             usernameExists: false,
@@ -122,7 +115,6 @@ class Profile{
     }
     async onClickSave(){
         const username = document.querySelector('.profile__input-name').value;
-        const email = document.querySelector('.profile__input-email').value;
         const phone = this.tel.value;
         let flag_username = true;
         let flag_tel = true;
@@ -132,7 +124,7 @@ class Profile{
                 flag_username = true;
             }
             else{
-                this.message_name.textContent = 'This username is already being used by another user.';
+                document.querySelector('.profile__message-name').textContent = 'This username is already being used by another user.';
                 flag_username = false;
             }
         }
@@ -146,13 +138,8 @@ class Profile{
             }
         }
         if(flag_username && flag_tel){
-            const auth = getAuth();
-            const database = getDatabase();
-            // Поиск пользователя по username
-            
             const oldUserRef = ref(db, 'users/' + this.old_username);
             const snapshot = await get(oldUserRef);
-            
             if (snapshot.exists()) {
                 const userData = snapshot.val();
                 await remove(oldUserRef);
@@ -165,74 +152,41 @@ class Profile{
                 });
                 this.old_username = username;
                 this.old_tel = phone;
-                this.save.style.display = 'none';
-                this.save.style.pointerEvents = 'none';
-                this.save.style.cursor = 'auto';
+                this.buttonNone();
                 console.log('Update user!');
             }
             else {
-                console.log('Пользователь не найден!');
+                console.log('User not found!');
             }
         }
     }
     
     onInputName(){
-        if(this.name.value.length > 0 && this.name.value !== " "){
-            document.querySelector('.profile__div-name').style.borderColor = 'rgba(3, 3, 3, 1)';
-            this.message_name.textContent = "";
+        Input.onInputName(this.name, 'profile');
+
+        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel){
+            console.log('Nothing update!');
+            this.buttonNone();  
         }
         else{
-            document.querySelector('.profile__div-name').style.borderColor = 'red';
-            this.message_name.textContent = "Username is not filled in.";
+            this.createClick();
         }
-        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel)
-            {
-                console.log('Nothing update!');
-                this.save.style.display = 'none';
-                this.save.style.pointerEvents = 'none';
-                this.save.style.cursor = 'auto';  
-            }
-            else{
-        this.createClick();
-            }
     }
     onInputTel(){
-        if(this.tel.value.length > 0){
-            if((this.tel.value).toString().slice(0, 3) === '375'){
-                if((this.tel.value).toString().slice(3, 5) === '29' || (this.tel.value).toString().slice(3, 5) === '33'){
-                    if(this.tel.value.length === 12){
-                        document.querySelector('.profile__div-phone').style.borderColor = 'rgba(3, 3, 3, 1)';
-                        this.message_phone.textContent = "";
-                    }
-                    else{
-                        this.message_phone.textContent = "The phone number must contain 7 digits.";
-                        document.querySelector('.profile__div-phone').style.borderColor = 'red';
-                    }
-                }
-                else{
-                    this.message_phone.textContent = "The operator's code must be 29 or 33.";
-                    document.querySelector('.profile__div-phone').style.borderColor = 'red';
-                }
-            }
-            else{
-                this.message_phone.textContent = "The phone number should start with 375.";
-                document.querySelector('.profile__div-phone').style.borderColor = 'red';
-            }
+        Input.onInputTelKeyup(this.tel);
+        Input.onInputTel(this.tel, 'profile');
+        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel){
+            console.log('Nothing update!');
+            this.buttonNone();
         }
         else{
-            document.querySelector('.profile__div-phone').style.borderColor = 'red';
-            this.message_phone.textContent = "Phone is not filled in.";
+            this.createClick();
         }
-        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel)
-            {
-                console.log('Nothing update!');
-                this.save.style.display = 'none';
-                this.save.style.pointerEvents = 'none';
-                this.save.style.cursor = 'auto';
-            }
-            else{
-        this.createClick();
-        }
+    }
+    buttonNone(){
+        this.save.style.display = 'none';
+        this.save.style.pointerEvents = 'none';
+        this.save.style.cursor = 'auto';  
     }
 }
 
