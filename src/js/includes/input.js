@@ -13,16 +13,22 @@ class Input {
             div = document.querySelector('.booking__div-name');
             message = document.querySelector('.booking__message-name');
         }
-        if(name.value.length > 0 && name.value !== " "){
+        ///
+        if(name.value !== ""){
             div.style.borderColor = 'rgba(3, 3, 3, 1)';
             message.textContent = "";
+            name.parentNode.classList.add('success');
+            name.parentNode.classList.remove('error');
         }
         else{
             div.style.borderColor = 'red';
             message.textContent = "Username is not filled in.";
+            name.parentNode.classList.add('error');
+            name.parentNode.classList.remove('success');
         }
     }
     static onInputTel(tel, content){
+        tel.value = tel.value.replace(/[^\d]/g, "");
         let div, message;
         if(content === 'registration'){
             div = document.querySelector('.registration__div-phone');
@@ -81,59 +87,37 @@ class Input {
             div = document.querySelector('.booking__div-email');
             message = document.querySelector('.booking__message-email');
         }
-        div.style.borderColor = 'red';
-        const invalidChars = /[&=+\-<>'_,]/;
-        if(email.value.length > 0){
-            div.style.borderColor = 'rgba(3, 3, 3, 1)';
-            message.textContent = "";
-            if(!this.isEmailValid(email.value)){
-                message.textContent += "The e-mail does not match the specified format.";
-                div.style.borderColor = 'red';
-            }
+        ///
+        if(email.value === ''){
+            div.style.borderColor = 'red';
+            message.textContent = 'E-mail is not filled in.';
+            email.parentNode.classList.add('error');
+            email.parentNode.classList.remove('success');
+        }
+        else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value) || /[&=+\-<>'_,]/.test(email.value) || email.value.includes('..')){
+            div.style.borderColor = 'red';
+            message.textContent = 'The e-mail is not in a valid format.';
+            const invalidChars = /[&=+\-<>'_,]/;
             if (invalidChars.test(email.value)){
-                if(message.textContent !== ""){
-                    message.textContent = message.textContent.slice(0, -1);
-                    message.textContent += ", it must not contain the characters &=+-,<>'_.";
-                }
-                else{
-                    message.textContent += "The e-mail must not contain the characters &=+-<>'_,.";
-                }
-                div.style.borderColor = 'red';
+                message.textContent = message.textContent.slice(0, -1);
+                message.textContent += ", it must not contain the characters &=+-,<>'_.";
             }
             if (!email.value.includes('@')){
-                if(message.textContent !== ""){
-                    message.textContent = message.textContent.slice(0, -1);
-                    message.textContent += ", it must contain the character @.";
-                }
-                else{
-                    message.textContent += "The e-mail must contain the character @.";
-                }
-                div.style.borderColor = 'red';
+                message.textContent = message.textContent.slice(0, -1);
+                message.textContent += ", it must contain the character @.";
             }
             if (email.value.includes('..')){
-                if(message.textContent !== ""){
-                    message.textContent = message.textContent.slice(0, -1);
-                    message.textContent += ", it must not contain multiple dots in a row.";
-                }
-                else{
-                    message.textContent += "The e-mail must not contain multiple dots in a row.";
-                }
-                div.style.borderColor = 'red';
+                message.textContent = message.textContent.slice(0, -1);
+                message.textContent += ", it must not contain multiple dots in a row.";
             }
-            if(email.value.length > 49){
-                if(message.textContent !== ""){
-                    message.textContent = message.textContent.slice(0, -1);
-                    message.textContent += ", it length must not exceed 50 characters.";
-                }
-                else{
-                    message.textContent += "The e-mail length must not exceed 50 characters.";
-                }
-                div.style.borderColor = 'red';
-            }
+            email.parentNode.classList.add('error');
+            email.parentNode.classList.remove('success');
         }
         else{
-            div.style.borderColor = 'red';
-            message.textContent = "E-mail is not filled in.";
+            div.style.borderColor = 'rgba(3, 3, 3, 1)';
+            message.textContent = "";
+            email.parentNode.classList.add('success');
+            email.parentNode.classList.remove('error');
         }
     }
     static onInputPassword(password, content){
@@ -154,10 +138,20 @@ class Input {
             div = document.querySelector('.forgot__div-copy-new-password');
             message = document.querySelector('.forgot__message-copy-new-password');
         }
-
-        if(password.value.length > 0){
-            div.style.borderColor = 'rgba(3, 3, 3, 1)';
+        ///
+        if(password.value === ''){
+            div.style.borderColor = 'red';
+            message.textContent = 'Password is not filled in.';
+            password.parentNode.classList.add('error');
+            password.parentNode.classList.remove('success');
+        }
+        else{
             message.textContent = "";
+            div.style.borderColor = 'rgba(3, 3, 3, 1)';
+            if(password.value.length < 8){
+                div.style.borderColor = 'red';
+                message.textContent = 'The minimum password length is 8 characters.';
+            }
             if(!/[A-ZА-Я]/.test(password.value)){
                 div.style.borderColor = 'red';
                 if(message.textContent !== "")
@@ -191,24 +185,17 @@ class Input {
                     message.textContent += "The password must contain at least one special character.";
                 }
             }
-            if(password.value.length < 8){
-                div.style.borderColor = 'red';
-                message.textContent += "The minimum password length is 8 characters.";
+            if(div.style.borderColor === 'rgba(3, 3, 3, 1)'){
+                email.parentNode.classList.add('success');
+                email.parentNode.classList.remove('error');
             }
-
+            else{
+                password.parentNode.classList.add('error');
+                password.parentNode.classList.remove('success');
+            }
         }
-        else{
-            div.style.borderColor = 'red';
-            message.textContent = "Password is not filled in.";
-        }
     }
-    static isEmailValid(value) {
-        const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-        return EMAIL_REGEXP.test(value);
-    }
-    static onInputTelKeyup(tel){
-        tel.value = tel.value.replace(/[^\d]/g, "");
-    }
+   
     static buttonStyle(button, context){
         if(context){
             button.style.backgroundColor = 'rgb(113, 7, 7)';

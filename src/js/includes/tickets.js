@@ -1,15 +1,15 @@
-import { push, ref, set} from "firebase/database";
+import { push, ref, set } from "firebase/database";
 import { db } from "../../lib/firebase";
 import Input from './input.js';
 let count = 0;
 let count2 = 0;
 let count_save = 0;
 let count2_save = 0;
-let mas_type = new Array(
+let mas_type = [
     'Permanent exhibition',
     'Temporary exhibition',
     'Combined Admission'
-);
+];
 class Tickets{
     constructor(){
         this.select_checked = 'Permanent exhibition';
@@ -371,12 +371,15 @@ class Booking{
             if(id===i) {
                 document.querySelector('.booking__text-type').textContent = mas_type[i];
                 this.newOrder.type.textContent = mas_type[i];
-                this.option_mas1.style.display = 'none';
-                this.option_mas2.style.display = 'none';
-                this.option_mas3.style.display = 'none';
-                this.flag_select = true;
+                this.optionNone();
             }
         }
+    }
+    optionNone(){
+        this.option_mas1.style.display = 'none';
+        this.option_mas2.style.display = 'none';
+        this.option_mas3.style.display = 'none';
+        this.flag_select = true;
     }
     Cross(){
         count = count_save;
@@ -390,10 +393,7 @@ class Booking{
             this.flag_select = false;
         }
         else{
-            this.option_mas1.style.display = 'none';  
-            this.option_mas2.style.display = 'none';  
-            this.option_mas3.style.display = 'none';  
-            this.flag_select = true;
+            this.optionNone();
         }
     }
 

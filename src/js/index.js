@@ -1,6 +1,70 @@
 import Swiper from "swiper";
-// import { heroOptions } from "./includes/your-js-file-for-section-or-page";
-//import class_footer from './includes/footer';
+import { Navigation, Pagination } from 'swiper';
+let sliderImg = new Swiper('.swiper__div-img', {
+    modules: [Navigation, Pagination],
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination-fraction',
+      type: 'fraction',
+      renderFraction: function(currentClass, totalClass){
+        return '0<span class="' + currentClass + '"></span>'+ ' '+' | ' + '0<span class="' + totalClass + '"></span>';
+      }
+    },
+    grabCursor: true,
+    slideToClickedSlide: true,
+    keyboard:{
+      enabled: true,
+      onlyInViewport:true,
+      pageUpDown:true,
+    },
+    mousewheel:{
+      sensitivity: 1,
+      // eventsTarget: '.slider',
+    },
+    spaceBetween: 30,
+    loop: true,
+    speed: 800,    
+});
+
+let sliderVideo = new Swiper('.swiper-video', {
+  modules: [Navigation, Pagination],
+  navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  grabCursor: true,
+  slideToClickedSlide: true,
+  keyboard:{
+    enabled: true,
+    onlyInViewport:true,
+    pageUpDown:true,
+  },
+  mousewheel:{
+    sensitivity: 1,
+    // eventsTarget: '.slider',
+  },
+  spaceBetween: 32,
+  loop: true,
+  initialSlide: 0,
+  speed: 800,
+  breakpoints:{
+    0: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+  }
+});
+
 import class_header from './includes/header';
 import class_welcome from './includes/welcome';
 import class_tickets from './includes/tickets';
@@ -32,3 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const profile = new class_profile.Profile();
   //const footer = new class_footer.Footer();
 });
+export default { sliderImg, sliderVideo };

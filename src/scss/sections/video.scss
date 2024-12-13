@@ -13,7 +13,11 @@
         &__frame, &__overlay{
             width: 42.86vw;
             height: 24.05vw;
+        }
+        &__swiper-wrapper{
             margin-top: var(--margin-top-40);
+            height: 24.05vw;
+            width: 85.72vw;
         }
         &__form{
             margin-top: 40px;
@@ -26,9 +30,6 @@
         &__span{
             width: 8px;
             height: 8px;
-        }
-        &__frame-2, &__overlay-2{
-            margin-left: 20px;
         }
         &__container{
             gap: 5px;
@@ -61,7 +62,10 @@
         &__frame, &__overlay{
             width: 46.09vw;
             height: 25.91vw;
+        }
+        &__swiper-wrapper{
             margin-top: 20px;
+            height: 25.91vw;
         }
         &__form{
             margin-top: 20px;
@@ -75,10 +79,7 @@
 
     @include media-breakpoint-down(md){
         margin-top: var(--margin-top-40);
-        &__frame-3, &__overlay-3{
-            display: none;
-        }
-        &__main-frame, &__form{
+        &__main-frame{
             margin-top: 20px;
         }
         &__overlay-2{
@@ -98,14 +99,14 @@
             height: 49.22vw;
             margin-top: var(--margin-top-40);
         }
-        &__frame, &__overlay{
+        &__frame, &__overlay, &__swiper-slide{
             width: 29.30vw;
             height: 16.60vw;
         }
     }
 
     @include media-breakpoint-up(md){
-        &__frame, &__form, &__overlay{
+        &__form, &__swiper-wrapper{
             margin-top: var(--margin-top-40);
         }
         &__span{
@@ -148,7 +149,7 @@
             height: 38.28vw;
             margin-top: var(--margin-top-75);
         }
-        &__frame, &__overlay{
+        &__frame, &__overlay, &__swiper-slide{
             width: 23.54vw;
             height: 13.23vw;
         }
@@ -160,6 +161,7 @@
     }
 
     width: 100%;
+    min-width: 0px;
     font-weight: var(--typography-fontWeightLight);
     &__title{
         letter-spacing: 5px;
@@ -170,20 +172,20 @@
         @extend %flex-spase-between-G;
         width: 100%;
         position: relative;
+        min-width: 0px;
     }
     &__counter{
         @extend %flex-center-G;
         width: 100%;
-    }
-    &__span{
-        background-color: var(--palette-tertiary-dark);
-        border-radius: 50%;
+        min-width: 0px;
     }
     &__form{
         @extend %flex-spase-between-G;
+        min-width: 0px;
     }
     &__main-frame{
         width: 100%;
+        min-width: 0px;
     }
     &__arrow{
         cursor: pointer;
@@ -204,5 +206,32 @@
     }
     &__overlay-3{
         right: 0;
+    }
+}
+.swiper-pagination-bullets {
+    display: flex;
+    gap: 20px;
+
+}
+.swiper-pagination-bullet {
+    @include media-breakpoint-up(md){
+        width: 12px;
+        height: 12px;
+    }
+    @include media-breakpoint-between(sm, md){
+        width: 10px;
+        height: 10px;
+    }
+    @include media-breakpoint-down(sm){
+        width: 8px;
+        height: 8px;
+    }
+    display: flex;
+    background-color: var(--palette-tertiary-dark);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &-active {
+        background-color: var(--palette-primary-main);
     }
 }

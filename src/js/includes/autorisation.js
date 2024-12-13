@@ -5,6 +5,7 @@ import Input from './input.js';
 
 class Autorisation{
     constructor(){
+        this.form = document.forms[0];
         this.email = document.querySelector('.autorisation__input-email');
         this.login = document.querySelector('.autorisation__a-button-log-in');
         this.password = document.querySelector('.autorisation__input-password');
@@ -13,6 +14,12 @@ class Autorisation{
         this.unit();
     }
     unit(){
+        if(this.form !== null) {
+            this.form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+            })
+        }
         if(this.login !== null) {
             this.login.onclick = () => this.loginClick();
         }
@@ -24,12 +31,13 @@ class Autorisation{
         }
     }
     createClick(){
-        let flag = false;
         if(document.querySelector('.autorisation__div-password').style.borderColor !== 'red' && document.querySelector('.autorisation__div-email').style.borderColor !== 'red' && this.email.value !== "" && this.password.value !== "")
         {
-            flag = true;
+            Input.buttonStyle(this.login, true);
         }
-        Input.buttonStyle(this.login, flag);
+        else{
+            Input.buttonStyle(this.login, false);
+        }
     }
 
     async loginClick(){
@@ -37,8 +45,8 @@ class Autorisation{
         const email = document.querySelector('.autorisation__input-email').value;
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            AuthCookies.setCookie('token', userCredential._tokenResponse.idToken);
-            AuthCookies.setCookie('refreshToken', userCredential._tokenResponse.refreshToken);
+            AuthCookies.log_in(userCredential);
+            this.form.submit();
             location.href = "index.html";
         } catch (error) {
             const messageElement = document.querySelector('.autorisation__message-main');

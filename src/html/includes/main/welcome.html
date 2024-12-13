@@ -1,14 +1,26 @@
 <section class="welcome">
-    <div class="welcome__div-img">
-        <img class="welcome__img" src="../../../img/hero/hero-image1.webp" alt="photo.png">
+    <div class="welcome__div-img swiper__div-img swiper-container">
+        <div class="welcome-header__swiper-wrapper swiper-wrapper">
+            <div class="swiper-slide">
+                <img class="welcome__img slider" src="../../../img/hero/hero-image1.webp" alt="photo.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="welcome__img slider" src="../../../img/hero/hero-image2.webp" alt="photo.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="welcome__img slider" src="../../../img/hero/hero-image3.webp" alt="photo.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="welcome__img slider" src="../../../img/hero/hero-image4.webp" alt="photo.png">
+            </div>
+            <div class="swiper-slide">
+                <img class="welcome__img slider" src="../../../img/hero/hero-image5.webp" alt="photo.png">
+            </div>
+        </div>
         <div class="welcome__shadow"></div>
         <div class="welcome__caroisel">
-            <div class="welcome__counter">
-                <div class="welcome__counter-first">01</div>
-                <div>|</div>
-                <div>05</div>
-            </div>
-            <form class="welcome__form">
+            <div class="welcome__counter swiper-pagination-fraction"></div>
+            <form class="welcome__form welcome__radio">
                 <input class="welcome__radio" type="radio" checked>
                 <span class="welcome__span welcome__span-1"></span>
                 <input class="welcome__radio" type="radio">
@@ -21,8 +33,8 @@
                 <span class="welcome__span"></span>
             </form>
             <div class="welcome__arrows">
-                <img class="welcome__arrow welcome__arrow-prev" src="../../../img/hero/arrow-left.svg" alt="back.png">
-                <img class="welcome__arrow welcome__arrow-next" src="../../../img/hero/arrow-right.svg" alt="forward.png">
+                <img class="welcome__arrow welcome__arrow-prev swiper-button-prev" src="../../../img/hero/arrow-left.svg" alt="back.png">
+                <img class="welcome__arrow welcome__arrow-next swiper-button-next" src="../../../img/hero/arrow-right.svg" alt="forward.png">
             </div>
         </div>
     </div>

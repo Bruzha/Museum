@@ -5,6 +5,7 @@ import Input from './input.js';
 
 class Profile{
     constructor(){
+        this.form = document.querySelector('.profile__form');
         this.name = document.querySelector('.profile__input-name');
         this.email = document.querySelector('.profile__input-email');
         this.tel = document.querySelector('.profile__input-phone');
@@ -15,6 +16,12 @@ class Profile{
         this.unit();
     }
     unit(){
+        if(this.form !== null) {
+            this.form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+            })
+        }
         if(this.name !== null) {
             if (AuthCookies.checkAuthentication()) {
                 this.loadProfile();
@@ -41,17 +48,15 @@ class Profile{
         location.href = "index.html";
     }
     onClickLoadOut(){
-        AuthCookies.setCookie('token', '', -1);
-        AuthCookies.setCookie('refreshToken', '', -1);
+        AuthCookies.log_out();
         this.onClickLogoOrTitle();
     }
     async loadProfile() {
-        const token = AuthCookies.getCookie('token');
+        const token = AuthCookies.getTocken();
         if (!token) {
             console.error('The user is not authenticated. Please login.');
             return;
         }
-
         try {
             const response = await fetch(`https://museum-4007c-default-rtdb.firebaseio.com/users.json`);
             const users = await response.json();
@@ -74,21 +79,20 @@ class Profile{
     }
 
     displayUserProfile(user) {
-        document.querySelector('.profile__input-name').value = user.username;
-        document.querySelector('.profile__input-email').value = user.email;
-        document.querySelector('.profile__input-phone').value = user.phone;
+        this.name.value = user.username;
+        this.email.value = user.email;
+        this.tel.value = user.phone;
         this.old_username = user.username;
         this.old_tel = user.phone;
     }
     createClick(){
-        if(document.querySelector('.profile__div-name').style.borderColor !== 'red' && document.querySelector('.profile__div-phone').style.borderColor !== 'red' && this.name.value !== "" && this.tel.value !== "")
-        {
-            this.save.style.display = 'flex';
-            this.save.style.pointerEvents = 'auto';
-            this.save.style.cursor = 'pointer';
-        }
-        else{
-            this.buttonNone();
+        if(document.querySelector('.profile__div-name').style.borderColor !== 'red' && document.querySelector('.profile__div-phone').style.borderColor !== 'red' && this.name.value !== "" && this.tel.value !== ""){            
+            if(this.name.value === this.old_username && this.tel.value === this.old_tel){
+                Input.buttonStyle(this.save, false);
+            }
+            else{
+                Input.buttonStyle(this.save, true);
+            }
         }
     }
 
@@ -152,7 +156,7 @@ class Profile{
                 });
                 this.old_username = username;
                 this.old_tel = phone;
-                this.buttonNone();
+                Input.buttonStyle(this.save, false);
                 console.log('Update user!');
             }
             else {
@@ -163,30 +167,11 @@ class Profile{
     
     onInputName(){
         Input.onInputName(this.name, 'profile');
-
-        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel){
-            console.log('Nothing update!');
-            this.buttonNone();  
-        }
-        else{
-            this.createClick();
-        }
+        this.createClick();
     }
     onInputTel(){
-        Input.onInputTelKeyup(this.tel);
         Input.onInputTel(this.tel, 'profile');
-        if(document.querySelector('.profile__input-name').value === this.old_username && document.querySelector('.profile__input-phone').value === this.old_tel){
-            console.log('Nothing update!');
-            this.buttonNone();
-        }
-        else{
-            this.createClick();
-        }
-    }
-    buttonNone(){
-        this.save.style.display = 'none';
-        this.save.style.pointerEvents = 'none';
-        this.save.style.cursor = 'auto';  
+        this.createClick();
     }
 }
 
