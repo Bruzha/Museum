@@ -48,17 +48,6 @@ class Forgot{
             }
         }
         Input.buttonStyle(button_contex, flag);
-        // if(flag)
-        // {
-        //     button_contex.style.backgroundColor = 'rgb(113, 7, 7)';
-        //     button_contex.style.pointerEvents = 'auto';
-        //     button_contex.style.cursor = 'pointer';
-        // }
-        // else{
-        //     button_contex.style.backgroundColor = 'rgb(147, 147, 147)';
-        //     button_contex.style.pointerEvents = 'none';
-        //     button_contex.style.cursor = 'auto';
-        // }
     }
 
     async checkExistingUserData(email) {

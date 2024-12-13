@@ -6,6 +6,7 @@ import Input from './input.js';
 
 class Registration{
     constructor(){
+        this.form = document.querySelector('.registration__form');
         this.name = document.querySelector('.registration__input-name');
         this.email = document.querySelector('.registration__input-email');
         this.tel = document.querySelector('.registration__input-phone');
@@ -17,6 +18,12 @@ class Registration{
         this.unit();
     }
     unit(){
+        if(this.form !== null) {
+            this.form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+            })
+        }
         if(this.setup !== null) {
             this.setup.onclick = () => this.setupClick();
         }
@@ -34,12 +41,13 @@ class Registration{
         }
     }
     createClick(){
-        let flag = false;
         if(document.querySelector('.registration__div-password').style.borderColor !== 'red' && document.querySelector('.registration__div-name').style.borderColor !== 'red' && document.querySelector('.registration__div-phone').style.borderColor !== 'red' && document.querySelector('.registration__div-email').style.borderColor !== 'red' && this.name.value !== "" && this.email.value !== "" && this.tel.value !== "" && this.password.value !== "")
         {
-            flag = true;
+            Input.buttonStyle(this.setup, true);
         }
-        Input.buttonStyle(this.setup, flag);
+        else{
+            Input.buttonStyle(this.setup, false);
+        }
     }
 
     async checkExistingUserData(username, email, phone) {
@@ -70,10 +78,10 @@ class Registration{
         return existingData;
     }
     async setupClick(){
-            const username = document.querySelector('.registration__input-name').value;
-            const email = document.querySelector('.registration__input-email').value;
-            const phone = document.querySelector('.registration__input-phone').value;
-            const password = document.querySelector('.registration__input-password').value;
+            const username = this.name.value;
+            const email = this.email.value;
+            const phone = this.tel.value;
+            const password = this.password.value;
             let flag = true;
             const existingData = await this.checkExistingUserData(username, email, phone);
             if(existingData.usernameExists){
@@ -89,17 +97,17 @@ class Registration{
                 flag = false;
             }
             if(flag){
-                const auth = getAuth();
+                const auth = await getAuth();
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-                AuthCookies.setCookie('token', userCredential._tokenResponse.idToken);
-                AuthCookies.setCookie('refreshToken', userCredential._tokenResponse.refreshToken);
-                const newUserRef = ref(db, 'users/' + username); 
-                set(newUserRef, {
+                AuthCookies.log_in(userCredential);
+                const newUserRef = await ref(db, 'users/' + username); 
+                await set(newUserRef, {
                     username: username,
                     email: email,
                     phone: phone,
                     password: password
                 })
+                this.form.submit();
                 location.href = "index.html";
             }
     }
@@ -112,7 +120,6 @@ class Registration{
         this.createClick();
     }
     onInputTel(){
-        Input.onInputTelKeyup(this.tel);
         Input.onInputTel(this.tel, 'registration');
         this.createClick();
     }

@@ -186,6 +186,7 @@
     &__a-button{
         width: 220px;
         height: 45px;
+        border: none;
         @extend %flex-center-G;
         @extend %flex-center-V;
     }

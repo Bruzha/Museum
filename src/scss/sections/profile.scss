@@ -168,7 +168,7 @@
         align-items: center;
         justify-content: center;
         background-color: var(--palette-primary-dark);
-        display: none;
+        display: flex;
     }
     &__div-button{
         width: 220px;
@@ -177,11 +177,14 @@
         @extend %flex-center-V;
         margin-right: 0;
         margin-left: auto;
+        background-color: var(--palette-tertiary-dark);
     }
     &__a-button{
         color: var(--palette-primary-text);
+        background-color: var(--palette-tertiary-dark);
         font-family: var(--typography-fontFamily);
         font-weight: var(--typography-fontWeightLight);
+        border: none;
         pointer-events: none;
     }
     &__input{

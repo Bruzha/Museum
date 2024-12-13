@@ -1,5 +1,5 @@
 class AuthCookies {
-    static setCookie(name, value, days) {
+    static #setCookie(name, value, days) {
         let expires = "";
         if (days) {
             const date = new Date();
@@ -9,7 +9,7 @@ class AuthCookies {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
 
-    static getCookie(name) {
+    static #getCookie(name) {
         const nameEQ = name + "=";
         const ca = document.cookie.split(';');
         for (let i = 0; i < ca.length; i++) {
@@ -19,10 +19,22 @@ class AuthCookies {
         }
         return null;
     }
-
-    static checkAuthentication() {
-        return !!this.getCookie('token');
+    static log_in(userCredential){
+        this.#setCookie('token', userCredential._tokenResponse.idToken);
+        this.#setCookie('refreshToken', userCredential._tokenResponse.refreshToken);
     }
+    static log_out(){
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        document.cookie = 'refreshToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    }
+    static getTocken(){
+        const token = this.#getCookie('token');
+        return token;
+    }
+    static checkAuthentication() {
+        return !!this.#getCookie('token');
+    }
+
 }
 
 export default AuthCookies;

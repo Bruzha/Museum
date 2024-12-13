@@ -228,6 +228,7 @@
     width: 100%;
     position: relative;
     background-color: var(--palette-primary-main);
+    min-width: 0;
     @extend %flex-center-V;
     @extend %flex-spase-between-G;
     color:var(--palette-primary-light);
@@ -235,6 +236,7 @@
 
     &__div-img{
         position: relative;
+        min-width: 0;
     }
 
     &__text{
@@ -244,6 +246,7 @@
     &__shadow{
         background: linear-gradient(to right, var(--palette-primary-main), var(--palette-primary-main-opacity));
         position: absolute;
+        min-width: 0;
     }
 
     &__title{
@@ -273,15 +276,12 @@
         @extend %flex-row;
         @extend %flex-spase-between-G;
         @extend %flex-center-V;
+        min-width: 0;
     }
     &__counter{
-        @extend %flex-spase-between-G;
-        @extend %flex-row;
         line-height: 40px;
         height: 40px;
-    }
-    &__radio{
-        opacity: 0;
+        min-width: 0;
     }
     &__span{
         background-color: var(--palette-primary-light);
@@ -296,8 +296,46 @@
     &__arrow{
         height: 8px;
         cursor: pointer;
+        min-width: 0;
     }
     &__arrows{
         @extend %flex-spase-between-G;
+        min-width: 0;
+    }
+}
+.welcome__caroisel, .welcome__text{
+    z-index: 3;
+}
+.welcome__form{
+    z-index: 3;
+}
+.welcome__shadow{
+    z-index: 2;
+}
+.swiper-container{
+    min-width: 0;
+    overflow: hidden;
+    height: 100%;
+}
+.welcome-header__swiper-wrapper{
+    min-width: 0;
+    @include media-breakpoint-up(xl){
+        width: 1000px;
+        height: 750px;
+        left: 0;
+        top: 0;
+    }
+    @include media-breakpoint-between(md, xl){
+        width: 700px;
+        height: 525px;
+        top: 0;
+    }
+    @include media-breakpoint-between(sm, md){
+        width: 96vw;
+        height: 112.11vw;
+    }
+    @include media-breakpoint-down(sm){
+        width: 96vw;
+        height: 129.52vw;
     }
 }
