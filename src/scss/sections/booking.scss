@@ -563,6 +563,10 @@
         color: var(--palette-primary-text);
         font-family: var(--typography-fontFamily);
         font-weight: var(--typography-fontWeightLight);
+        width: 220px;
+        height: 45px;
+        background-color: var(--palette-tertiary-dark);
+        border: none;
     }
     &__arrow{
         cursor: pointer;

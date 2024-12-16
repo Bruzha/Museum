@@ -208,12 +208,19 @@ class Booking{
         this.option_mas1 = document.querySelector('.booking__option-1');
         this.option_mas2 = document.querySelector('.booking__option-2');
         this.option_mas3 = document.querySelector('.booking__option-3');
-        this.button_book = document.querySelector('.booking__div-button');
+        this.button_book = document.querySelector('.booking__a-button');
         this.message_email = document.querySelector('.booking__message-email');
+        this.form = document.querySelector('.booking__form');
 
         this.init();
     }
     init(){
+        if(this.form !== null) {
+            this.form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+            })
+        }
         if(document.querySelector('.booking__card-input-3') !== null) {
             this.newOrder.card.name.oninput = () => this.onInputCardholder();
         }
@@ -290,9 +297,7 @@ class Booking{
     }
     createClick(){
         let flag = false;
-        if(document.querySelector('.booking__div-name').style.borderColor !== 'red' && document.querySelector('.booking__div-phone').style.borderColor !== 'red' && document.querySelector('.booking__div-email').style.borderColor !== 'red' && this.newOrder.name.value !== "" && this.newOrder.email.value !== "" && this.newOrder.phone.value !== "" && this.newOrder.date.textContent !== 'Date' && this.newOrder.time.textContent !== 'Time' && this.newOrder.card.number.style.borderColor !== 'red' && this.newOrder.card.number.value !== "" && this.newOrder.card.name.value !== "" && this.newOrder.card.code.value !== "" && this.newOrder.card.code.style.borderColor !== 'red'
-        )
-        {
+        if(document.querySelector('.booking__div-name').style.borderColor !== 'red' && document.querySelector('.booking__div-phone').style.borderColor !== 'red' && document.querySelector('.booking__div-email').style.borderColor !== 'red' && this.newOrder.name.value !== "" && this.newOrder.email.value !== "" && this.newOrder.phone.value !== "" && this.newOrder.date.textContent !== 'Date' && this.newOrder.time.textContent !== 'Time' && this.newOrder.card.number.style.borderColor !== 'red' && this.newOrder.card.number.value !== "" && this.newOrder.card.name.value !== "" && this.newOrder.card.code.value !== "" && this.newOrder.card.code.style.borderColor !== 'red'){
             if(!(this.newOrder.basicCount.textContent === '0' && this.newOrder.seniorCount.textContent === '0'))
             {
                 flag = true;
@@ -315,7 +320,6 @@ class Booking{
         this.createClick();
     }
     onInputTel(){
-        Input.onInputTelKeyup(this.newOrder.phone);
         Input.onInputTel(this.newOrder.phone, 'tickets');
         this.createClick();
     }
@@ -324,27 +328,30 @@ class Booking{
         this.createClick();
     }
     async booking_buttonClick(){
-        const ordersRef = await ref(db, 'orders');
-        const newOrderRef = await push(ordersRef); 
-        await set(newOrderRef, {
-            name: this.newOrder.name.value,
-            email: this.newOrder.email.value,
-            phone: this.newOrder.phone.value,
-            date: this.newOrder.date.textContent,
-            time: this.newOrder.time.textContent,
-            ticket_type: this.newOrder.type.textContent,
-            entry_basic_ticket: this.newOrder.basicCount.textContent,
-            entry_senior_ticket: this.newOrder.seniorCount.textContent,
-            total: this.newOrder.allPrice.textContent.slice(7, this.newOrder.allPrice.textContent.length),
-            card_number: this.newOrder.card.number.value,
-            card_month: this.newOrder.card.month.textContent,
-            card_year: this.newOrder.card.year.textContent,
-            cardholder_name: this.newOrder.card.name.value,
-            cvc: this.newOrder.card.code.value,
+        if(this.button_book.style.backgroundColor === 'rgb(113, 7, 7)'){
+            const ordersRef = await ref(db, 'orders');
+            const newOrderRef = await push(ordersRef); 
+            await set(newOrderRef, {
+                name: this.newOrder.name.value,
+                email: this.newOrder.email.value,
+                phone: this.newOrder.phone.value,
+                date: this.newOrder.date.textContent,
+                time: this.newOrder.time.textContent,
+                ticket_type: this.newOrder.type.textContent,
+                entry_basic_ticket: this.newOrder.basicCount.textContent,
+                entry_senior_ticket: this.newOrder.seniorCount.textContent,
+                total: this.newOrder.allPrice.textContent.slice(7, this.newOrder.allPrice.textContent.length),
+                card_number: this.newOrder.card.number.value,
+                card_month: this.newOrder.card.month.textContent,
+                card_year: this.newOrder.card.year.textContent,
+                cardholder_name: this.newOrder.card.name.value,
+                cvc: this.newOrder.card.code.value,
 
-        })
-        alert("You have successfully booked your tickets.");
-        location.href = "index.html";
+            })
+            this.form.submit();
+            alert("You have successfully booked your tickets.");
+            location.href = "index.html";
+        }
     }
     Number(){
         this.newOrder.card.number.value = this.newOrder.card.number.value.slice(0, 16);
