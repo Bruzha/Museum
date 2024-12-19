@@ -18,14 +18,19 @@
         &__a-button{
             font-size: 20px;
             line-height: 23.44px;
+            margin-right: 0;
+            margin-left: auto;
         }
-        &__div-button-sing-up, &__title{
+        &__div-buttons, &__title{
             margin-top: var(--margin-top-40);
+        }
+        &__a-button-set-up{
+            margin-top: 40px;
         }
     }
 
     @include media-breakpoint-between(md, xl){
-        &__div-button-sing-up, &__title{
+        &__div-buttons, &__title{
             margin-top: var(--margin-top-60);
         }
         &__title{
@@ -39,13 +44,19 @@
             font-size: 22px;
             line-height: 25.78px;
         }
+        &__div-buttons{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
     }
     @include media-breakpoint-down(xl){
         padding-inline: 20px;
     }
     @include media-breakpoint-up(xl){
         padding-inline: 12.3%;
-        &__div-button-sing-up, &__title{
+        &__div-buttons, &__title{
             margin-top: var(--margin-top-75);
         }
         &__title{
@@ -167,24 +178,18 @@
         height: 45px;
         align-items: center;
         justify-content: center;
-        background-color: var(--palette-primary-dark);
         display: flex;
-    }
-    &__div-button{
-        width: 220px;
-        height: 45px;
-        @extend %flex-center-G;
-        @extend %flex-center-V;
-        margin-right: 0;
-        margin-left: auto;
-        background-color: var(--palette-tertiary-dark);
-    }
-    &__a-button{
         color: var(--palette-primary-text);
-        background-color: var(--palette-tertiary-dark);
         font-family: var(--typography-fontFamily);
         font-weight: var(--typography-fontWeightLight);
         border: none;
+    }
+    &__a-button-order{
+        background-color: var(--palette-primary-dark);
+        cursor: pointer;
+    }
+    &__a-button-set-up{
+        background-color: var(--palette-tertiary-dark);
         pointer-events: none;
     }
     &__input{

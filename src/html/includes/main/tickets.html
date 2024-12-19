@@ -54,39 +54,41 @@
             <div class="booking__title">BOOKING TICKETS</div>
             <div class="booking__subtitle">Tour to Louvre</div>
             <div class="booking__line"></div>
-            <div class="booking__container-datetime">
-                <div class="booking__div-border-1 booking__div-date">
-                    <div class="booking__div booking__div-title booking__div-title-date">Date</div>
-                    <input class="booking__input booking__input-date" type="date">
+            <form class="booking__form">
+                <div class="booking__container-datetime">
+                    <div class="booking__div-border-1 booking__div-date">
+                        <div class="booking__div booking__div-title booking__div-title-date">Date</div>
+                        <input class="booking__input booking__input-date" type="date">
+                    </div>
+                    <div class="booking__message booking__message-date"></div>
+                    <div class="booking__div-border-1 booking__div-time">
+                        <div class="booking__div booking__div-title booking__div-title-time">Time</div>
+                        <input class="booking__input booking__input-time" type="time">
+                    </div>
                 </div>
-                <div class="booking__message booking__message-date"></div>
-                <div class="booking__div-border-1 booking__div-time">
-                    <div class="booking__div booking__div-title booking__div-title-time">Time</div>
-                    <input class="booking__input booking__input-time" type="time">
+                <div class="booking__message booking__message-time"></div>
+                <div class="booking__div-border-2 booking__div booking__div-name">
+                    <input class="booking__input booking__input-name" type="text" placeholder="Name">
                 </div>
-            </div>
-            <div class="booking__message booking__message-time"></div>
-            <div class="booking__div-border-2 booking__div booking__div-name">
-                <input class="booking__input booking__input-name" type="text" placeholder="Name">
-            </div>
-            <div class="booking__message booking__message-name"></div>
-            <div class="booking__div-border-2 booking__div booking__div-email">
-                <input class="booking__input booking__input-email" type="email" placeholder="E-mail">
-            </div>
-            <div class="booking__message booking__message-email"></div>
-            <div class="booking__div-border-2 booking__div booking__div-phone">
-                <input class="booking__input booking__input-phone" type="tel" placeholder="Phone">
-            </div>
-            <div class="booking__message booking__message-phone"></div>
-            <div class="booking__div-border-2 booking__div-type">
-                <div class="booking__div booking__div-title booking__div-title-type">Permanent exhibition</div>
-                <div class="booking__div booking__select"></div>
-            </div>
-            <div class="booking__select-options">
-                <div class="booking__div booking__option booking__option-1">Permanent exhibition</div>
-                <div class="booking__div booking__option booking__option-2">Temporary exhibition</div>
-                <div class="booking__div booking__option booking__option-3">Combined Admission</div>
-            </div>
+                <div class="booking__message booking__message-name"></div>
+                <div class="booking__div-border-2 booking__div booking__div-email">
+                    <input class="booking__input booking__input-email" type="email" placeholder="E-mail">
+                </div>
+                <div class="booking__message booking__message-email"></div>
+                <div class="booking__div-border-2 booking__div booking__div-phone">
+                    <input class="booking__input booking__input-phone" type="tel" placeholder="Phone">
+                </div>
+                <div class="booking__message booking__message-phone"></div>
+                <div class="booking__div-border-2 booking__div-type">
+                    <div class="booking__div booking__div-title booking__div-title-type">Permanent exhibition</div>
+                    <div class="booking__div booking__select"></div>
+                </div>
+                <div class="booking__select-options">
+                    <div class="booking__div booking__option booking__option-1">Permanent exhibition</div>
+                    <div class="booking__div booking__option booking__option-2">Temporary exhibition</div>
+                    <div class="booking__div booking__option booking__option-3">Combined Admission</div>
+                </div>
+            </form>
             <div class="booking__div-entry">
                 <div class="booking__entry-title">Entry Tickets</div>
                 <div class="booking__line-min"></div>
@@ -181,7 +183,7 @@
                 </div>
             </div>
             <div class="booking__div-button">
-                <a class="booking__a-button">Book</a>
+                <button class="booking__a-button" type="submit">Book</button>
             </div>
         </div>
     </div>

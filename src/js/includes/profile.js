@@ -16,6 +16,9 @@ class Profile{
         this.unit();
     }
     unit(){
+        if(document.querySelector('.profile__a-button-order') !== null){
+            document.querySelector('.profile__a-button-order').addEventListener('click', () => location.href = "history_orders.html");
+        }
         if(this.form !== null) {
             this.form.addEventListener('submit', (event) => {
                 event.preventDefault();
@@ -28,20 +31,20 @@ class Profile{
             } 
         }
         if(this.tel !== null) {
-            this.tel.oninput = () => this.onInputTel();
+            this.tel.addEventListener('input', () => this.onInputTel());
         }
         if(this.name !== null) {
-            this.name.oninput = () => this.onInputName();
+            this.name.addEventListener('input', () => this.onInputName());
         }
         if(this.save !== null) {
-            this.save.onclick = () => this.onClickSave();
+            this.save.addEventListener('click', () => this.onClickSave());
         }
         if(document.querySelector('.header-profile__a-log-out') !== null){
-            document.querySelector('.header-profile__a-log-out').onclick = () => this.onClickLoadOut();
+            document.querySelector('.header-profile__a-log-out').addEventListener('click', () => this.onClickLoadOut());
         }
         if(document.querySelector('.header-profile__logo') !== null && document.querySelector('.header-profile__title') !== null){
-            document.querySelector('.header-profile__logo').onclick = () => this.onClickLogoOrTitle();
-            document.querySelector('.header-profile__title').onclick = () => this.onClickLogoOrTitle();
+            document.querySelector('.header-profile__logo').addEventListener('click', () => this.onClickLogoOrTitle());
+            document.querySelector('.header-profile__title').addEventListener('click', () => this.onClickLogoOrTitle());
         }
     }
     onClickLogoOrTitle(){
@@ -60,7 +63,7 @@ class Profile{
         try {
             const response = await fetch(`https://museum-4007c-default-rtdb.firebaseio.com/users.json`);
             const users = await response.json();
-            const currentUserEmail = this.getCurrentUserEmail(token);
+            const currentUserEmail = Input.getCurrentUserEmail(token);
             const currentUser = Object.values(users).find(user => user.email === currentUserEmail);
             if (currentUser) {
                 this.displayUserProfile(currentUser);
@@ -70,12 +73,6 @@ class Profile{
         } catch (error) {
             console.error('Error loading profile:', error);
         }
-    }
-
-    getCurrentUserEmail(token) {
-        const decoded = atob(token.split('.')[1]);
-        const { email } = JSON.parse(decoded);
-        return email;
     }
 
     displayUserProfile(user) {

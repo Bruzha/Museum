@@ -10,7 +10,7 @@ const firebaseConfig = {
   messagingSenderId: "443847601599",
   appId: "1:443847601599:web:8d907089bf34bd3698050a",
   databaseURL: 'https://museum-4007c-default-rtdb.firebaseio.com/',
-};
+}
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);

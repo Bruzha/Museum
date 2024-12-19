@@ -1,5 +1,16 @@
 import Swiper from "swiper";
 import { Navigation, Pagination } from 'swiper';
+import class_header from './includes/header';
+import class_welcome from './includes/welcome';
+import class_tickets from './includes/tickets';
+import class_video from './includes/video';
+import class_explore from './includes/explore';
+import class_registation from './includes/registration';
+import class_autorisation from './includes/autorisation';
+import class_forgot from './includes/forgot-password';
+import class_profile from './includes/profile';
+import class_orders from './includes/orders';
+
 let sliderImg = new Swiper('.swiper__div-img', {
     modules: [Navigation, Pagination],
     navigation: {
@@ -41,7 +52,7 @@ let sliderVideo = new Swiper('.swiper-video', {
     clickable: true,
   },
   grabCursor: true,
-  slideToClickedSlide: true,
+  //slideToClickedSlide: true,
   keyboard:{
     enabled: true,
     onlyInViewport:true,
@@ -65,15 +76,6 @@ let sliderVideo = new Swiper('.swiper-video', {
   }
 });
 
-import class_header from './includes/header';
-import class_welcome from './includes/welcome';
-import class_tickets from './includes/tickets';
-import class_video from './includes/video';
-import class_explore from './includes/explore';
-import class_registation from './includes/registration';
-import class_autorisation from './includes/autorisation';
-import class_forgot from './includes/forgot-password';
-import class_profile from './includes/profile';
 if (document.location.pathname === "/" || document.location.pathname === "/index.html") {
   //Hero init your class from your-js-file-for-section-or-pag
   // new YourClass()
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const autorisation = new class_autorisation;
   const forgot = new class_forgot.Forgot();
   const profile = new class_profile.Profile();
+  const orders = new class_orders.Orders();
   //const footer = new class_footer.Footer();
 });
 export default { sliderImg, sliderVideo };
