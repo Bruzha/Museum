@@ -17,19 +17,19 @@ class Forgot{
     }
     unit(){
         if(this.email !== null) {
-            this.email.oninput = () => this.onInputEmail();
+            this.email.addEventListener('input', () => this.onInputEmail());
         }
         if(this.new_password !== null) {
-            this.new_password.oninput = () => this.onInputPassword('forgot-new');
+            this.new_password.addEventListener('input', () => this.onInputPassword('forgot-new'));
         }
         if(this.copy_new_password !== null) {
-            this.copy_new_password.oninput = () => this.onInputPassword('forgot-copy-new');
+            this.copy_new_password.addEventListener('input', () => this.onInputPassword('forgot-copy-new'));
         }
         if(this.button_config !== null) {
-            this.button_config.onclick = () => this.onClickConfig();
+            this.button_config.addEventListener('click', () => this.onClickConfig());
         }
         if(this.button_save !== null) {
-            this.button_save.onclick = () => this.onClickSave();
+            this.button_save.addEventListener('click', () => this.onClickSave());
         }
     }
     createClick(button_config){

@@ -208,6 +208,12 @@ class Input {
             button.style.cursor = 'auto';
         }
     }
+    
+    static getCurrentUserEmail(token) {
+        const decoded = atob(token.split('.')[1]);
+        const { email } = JSON.parse(decoded);
+        return email;
+    }
 }
 
 export default Input;

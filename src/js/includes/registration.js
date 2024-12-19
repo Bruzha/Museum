@@ -25,19 +25,19 @@ class Registration{
             })
         }
         if(this.setup !== null) {
-            this.setup.onclick = () => this.setupClick();
+            this.setup.addEventListener('click', () => this.setupClick());
         }
         if(this.email !== null) {
-            this.email.oninput = () => this.onInputEmail();
+            this.email.addEventListener('input', () => this.onInputEmail());
         }
         if(this.tel !== null) {
-            this.tel.oninput = () => this.onInputTel();
+            this.tel.addEventListener('input', () => this.onInputTel());
         }
         if(this.name !== null) {
-            this.name.oninput = () => this.onInputName();
+            this.name.addEventListener('input', () => this.onInputName());
         }
         if(this.password !== null) {
-            this.password.oninput = () => this.onInputPassword();
+            this.password.addEventListener('input', () => this.onInputPassword());
         }
     }
     createClick(){

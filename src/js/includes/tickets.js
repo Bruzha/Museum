@@ -23,40 +23,40 @@ class Tickets{
     }
     init(){
         if(document.querySelector('.tickets__minus-1') !== null) {
-            document.querySelector('.tickets__minus-1').onclick = () => this.updateCount('count1', '-');
+            document.querySelector('.tickets__minus-1').addEventListener('click', () => this.updateCount('count1', '-'));
         }
         if(document.querySelector('.tickets__minus-2') !== null) {
-            document.querySelector('.tickets__minus-2').onclick = () => this.updateCount('count2', '-');
+            document.querySelector('.tickets__minus-2').addEventListener('click', () => this.updateCount('count2', '-'));
         }
         if(document.querySelector('.tickets__plus-1') !== null) {
-            document.querySelector('.tickets__plus-1').onclick = () => this.updateCount('count1', '+');
+            document.querySelector('.tickets__plus-1').addEventListener('click', () => this.updateCount('count1', '+'));
         }
         if(document.querySelector('.tickets__plus-2') !== null) {
-            document.querySelector('.tickets__plus-2').onclick = () => this.updateCount('count2', '+');
+            document.querySelector('.tickets__plus-2').addEventListener('click', () => this.updateCount('count2', '+'));
         }
 
         if(this.radio1 !== null) {
-            this.radio1.onclick = () => this.radio_change(0);
+            this.radio1.addEventListener('click', () => this.radio_change(0));
         }
         if(this.radio2 !== null) {
-            this.radio2.onclick = () => this.radio_change(1);
+            this.radio2.addEventListener('click', () => this.radio_change(1));
         }
         if(this.radio3 !== null) {
-            this.radio3.onclick = () => this.radio_change(2);
+            this.radio3.addEventListener('click', () => this.radio_change(2));
         }
 
         if(document.querySelector('.tickets__button') !== null) {
-            document.querySelector('.tickets__button').onclick = () => this.buttonClick();
+            document.querySelector('.tickets__button').addEventListener('click', () => this.buttonClick());
         }
         if(document.querySelector('.tickets__button-buy') !== null) {
-            document.querySelector('.tickets__button-buy').onclick = () => this.buttonClick();
+            document.querySelector('.tickets__button-buy').addEventListener('click', () => this.buttonClick());
         }
 
         if(this.total_count !== null) {
-            this.total_count.oninput = () => this.positivNumber(0);
+            this.total_count.addEventListener('input', () => this.positivNumber(0));
         }
         if(this.total_count2 !== null) {
-            this.total_count2.oninput = () => this.positivNumber(1);
+            this.total_count2.addEventListener('input', () => this.positivNumber(1));
         }
     }
 
@@ -222,77 +222,77 @@ class Booking{
             })
         }
         if(document.querySelector('.booking__card-input-3') !== null) {
-            this.newOrder.card.name.oninput = () => this.onInputCardholder();
+            this.newOrder.card.name.addEventListener('input', () => this.onInputCardholder());
         }
         if(document.querySelector('.booking__minus-1') !== null) {
-            document.querySelector('.booking__minus-1').onclick = () => this.updateCount('count1', '-');
+            document.querySelector('.booking__minus-1').addEventListener('click', () => this.updateCount('count1', '-'));
         }
         if(document.querySelector('.booking__minus-2') !== null) {
-            document.querySelector('.booking__minus-2').onclick = () => this.updateCount('count2', '-');
+            document.querySelector('.booking__minus-2').addEventListener('click', () => this.updateCount('count2', '-'));
         }
         if(document.querySelector('.booking__plus-1') !== null) {
-            document.querySelector('.booking__plus-1').onclick = () => this.updateCount('count1', '+');
+            document.querySelector('.booking__plus-1').addEventListener('click', () => this.updateCount('count1', '+'));
         }
         if(document.querySelector('.booking__plus-2') !== null) {
-            document.querySelector('.booking__plus-2').onclick = () => this.updateCount('count2', '+');
+            document.querySelector('.booking__plus-2').addEventListener('click', () => this.updateCount('count2', '+'));
         }
 
         if(document.querySelector('.booking__input-date') !== null) {
-            document.querySelector('.booking__input-date').onchange = () => this.changeDate();
+            document.querySelector('.booking__input-date').addEventListener('change', () => this.changeDate());
         }
         if(document.querySelector('.booking__input-time') !== null) {
-            document.querySelector('.booking__input-time').onchange = () => this.changeTime();
+            document.querySelector('.booking__input-time').addEventListener('change', () => this.changeTime());
         }
 
         if(document.querySelector('.booking__arrow-1') !== null) {
-            document.querySelector('.booking__arrow-1').onclick = () => this.plus_month();
+            document.querySelector('.booking__arrow-1').addEventListener('click', () => this.plus_month());
         }
         if(document.querySelector('.booking__arrow-2') !== null) {
-            document.querySelector('.booking__arrow-2').onclick = () => this.minus_month();
+            document.querySelector('.booking__arrow-2').addEventListener('click', () => this.minus_month());
         }
         if(document.querySelector('.booking__arrow-3') !== null) {
-            document.querySelector('.booking__arrow-3').onclick = () => this.changeYear('+');
+            document.querySelector('.booking__arrow-3').addEventListener('click', () => this.changeYear('+'));
         }
         if(document.querySelector('.booking__arrow-4') !== null) {
-            document.querySelector('.booking__arrow-4').onclick = () => this.changeYear('-');
+            document.querySelector('.booking__arrow-4').addEventListener('click', () => this.changeYear('-'));
         }
 
         if(document.querySelector('.booking__select') !== null) {
-            document.querySelector('.booking__select').onclick = () => this.openSelect();
+            document.querySelector('.booking__select').addEventListener('click', () => this.openSelect());
         }
         if(this.option_mas1 !== null) {
-            this.option_mas1.onclick = () => this.Option(0);
+            this.option_mas1.addEventListener('click', () => this.Option(0));
         }
         if(this.option_mas2 !== null) {
-            this.option_mas2.onclick = () => this.Option(1);
+            this.option_mas2.addEventListener('click', () => this.Option(1));
         }
         if(this.option_mas3 !== null) {
-            this.option_mas3.onclick = () => this.Option(2);
+            this.option_mas3.addEventListener('click', () => this.Option(2));
         }
 
         if(document.querySelector('.booking__button') !== null) {
-            document.querySelector('.booking__button').onclick = () => this.Cross();
+            document.querySelector('.booking__button').addEventListener('click', () => this.Cross());
         }
 
         if(document.querySelector('.booking__card-input-4') !== null) {
-            this.newOrder.card.code.oninput = () => this.Cvc();
+            this.newOrder.card.code.addEventListener('input', () => this.Cvc());
         }
         if(document.querySelector('.booking__card-input-3') !== null) {
-            this.newOrder.card.number.oninput = () => this.Number();
+            this.newOrder.card.number.addEventListener('input', () => this.Number());
         }
 
         if(this.button_book !== null) {
-            this.button_book.onclick = () => this.booking_buttonClick();
+            this.button_book.addEventListener('click', () => this.booking_buttonClick());
         }
 
         if(document.querySelector('.booking__input-name') !== null) {
-            this.newOrder.name.oninput = () => this.onInputName();
+            this.newOrder.name.addEventListener('input', () => this.onInputName());
         }
         if(document.querySelector('.booking__input-email') !== null) {
-            this.newOrder.email.oninput = () => this.onInputEmail();
+            this.newOrder.email.addEventListener('input', () => this.onInputEmail());
         }
         if(document.querySelector('.booking__input-phone') !== null) {
-            this.newOrder.phone.oninput = () => this.onInputTel();
+            this.newOrder.phone.addEventListener('input', () => this.onInputTel());
         }
     }
     createClick(){

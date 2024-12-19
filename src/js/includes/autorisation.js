@@ -20,14 +20,14 @@ class Autorisation{
                 
             })
         }
-        if(this.login !== null) {
-            this.login.onclick = () => this.loginClick();
+        if (this.login !== null) {
+            this.login.addEventListener('click', () => this.loginClick());
         }
-        if(this.email !== null) {
-            this.email.oninput = () => this.onInputEmail();
+        if (this.email !== null) {
+            this.email.addEventListener('input', () => this.onInputEmail());
         }
-        if(this.password !== null) {
-            this.password.oninput = () => this.onInputPassword();
+        if (this.password !== null) {
+            this.password.addEventListener('input', () => this.onInputPassword());
         }
     }
     createClick(){

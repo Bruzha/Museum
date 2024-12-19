@@ -9,6 +9,7 @@ import class_registation from './includes/registration';
 import class_autorisation from './includes/autorisation';
 import class_forgot from './includes/forgot-password';
 import class_profile from './includes/profile';
+import class_orders from './includes/orders';
 
 let sliderImg = new Swiper('.swiper__div-img', {
     modules: [Navigation, Pagination],
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const autorisation = new class_autorisation;
   const forgot = new class_forgot.Forgot();
   const profile = new class_profile.Profile();
+  const orders = new class_orders.Orders();
   //const footer = new class_footer.Footer();
 });
 export default { sliderImg, sliderVideo };

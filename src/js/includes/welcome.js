@@ -5,7 +5,7 @@ class Welcome{
     }
     init(){
         if(document.querySelector('.welcome__button') !== null) {
-            document.querySelector('.welcome__button').onclick = () => location.reload();;
+            document.querySelector('.welcome__button').addEventListener('click', () => location.reload());
             slider.sliderImg[1].on('slideChange', function () {
                 const items = document.querySelectorAll('.welcome__span');
                 for (let i = 0; i < 5; i++) {
